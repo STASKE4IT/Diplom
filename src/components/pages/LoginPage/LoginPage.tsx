@@ -47,7 +47,12 @@ export const LoginPage = () => {
   const user = useSelector((state: RootState) => state.userSlice.user)
 
   const onLoginFormSubmit: SubmitHandler<ILoginForm> = (data) => {
-    // data ? navigate("/main") : navigate("/");
+    data ? navigate("/main") : navigate("/");
+    // if (data) {
+    //   navigate("/main")
+    // } else {
+    //   navigate("/")
+    // }
     dispatch(changeUser(mockUser));
 
 console.log("USER: ", user)
@@ -56,6 +61,7 @@ console.log("USER: ", user)
 
   return (
     <SCLoginPage>
+      <img src="./src/images/logo3.png" alt="" id="logo3"/>
       <form onSubmit={handleSubmit(onLoginFormSubmit)} className="login">
         <img src="./src/images/logo2.png" alt="" id="logo" />
         <div className="authorisation">
@@ -85,7 +91,7 @@ console.log("USER: ", user)
               />
             )}
           />
-          <AppButton type="submit" buttonText={"Войти"} />
+          <AppButton type="submit" buttonText={"Войти"} className={""} />
         </div>
         <div className="registration">
           <span>

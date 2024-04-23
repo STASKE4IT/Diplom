@@ -2,7 +2,12 @@ import { css, styled } from "styled-components";
 
 export const ErrorMessage = styled.p`
   color: red;
+  width: 18.75vw;
   position: absolute;
+  text-align:center;
+  padding: 4px;
+  background: white;
+  border-radius: 5px;
 `;
 
 interface IStyledInputProps {
