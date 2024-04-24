@@ -12,7 +12,7 @@ export const SCHeader = styled.div`
   gap: 50px;
   align-items: center;
 
-  border: 2px solid green;
+  border-bottom: 2px solid green;
   background: url("./src/images/fon1.jpg") center/cover no-repeat;
   opacity: 1;
 
@@ -24,7 +24,7 @@ export const SCHeader = styled.div`
     border-right: 2px solid lightgray;
 
     padding: 8px;
-}
+  }
 
   #navigation {
     display: flex;
@@ -35,12 +35,28 @@ export const SCHeader = styled.div`
 
   .logoPart {
     display: flex;
+    align-items:center;
   }
 
   #logo {
     width: 150px;
-    margin-left: 125px;
+    margin-left: 75px;
     animation: ${exampleAnimation} 1s alternate infinite;
   }
 
+  .profileBtn {
+    width: 50px;
+    height: 50px;
+
+    margin-left: 25px;
+    
+    border: 2px solid green;
+    border-radius: 100px;
+
+    background-image: url("./src/images/me.jpg");
+    background-size: cover;
+
+    cursor: pointer;
+  }
+  
 `;

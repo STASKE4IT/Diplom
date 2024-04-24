@@ -6,6 +6,9 @@ export const Header = () => {
   return (
     <SCHeader>
       <div className="logoPart">
+      <Link to="/profile">
+        <button className="profileBtn"></button>
+      </Link>
         <img src="./src/images/logo2.png" alt="" id="logo" />
       </div>
       <nav id="navigation">
@@ -16,8 +19,8 @@ export const Header = () => {
         <a href="/main" className="a">Page4</a>
         <a href="/main" className="a">Page5</a>
       </nav>
-      <Link to="/profile">
-        <AppButton type={"button"} buttonText={"Profile"} className={"asd"}/>
+      <Link to="/">
+      <AppButton type={"button"} buttonText={"Выйти"} className={""}/>
       </Link>
     </SCHeader>
   );

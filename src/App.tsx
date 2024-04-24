@@ -8,19 +8,19 @@ import { RegistrationPage } from "./components/pages/RegistrationPage/Registrati
 const routerConfig = createBrowserRouter([
   {
     path: "/",
-    element: <LoginPage/>,
+    element: <LoginPage />,
   },
   {
     path: "/main",
-    element: <MainPage/>,
+    element: <MainPage />,
   },
   {
     path: "/registration",
-    element: <RegistrationPage/>,
+    element: <RegistrationPage />,
   },
   {
     path: "/profile",
-    element: <ProfilePage/>,
+    element: <ProfilePage />,
   },
 ]);
 
@@ -29,7 +29,7 @@ function App() {
     <>
       <div className="App">
         <div>
-          <RouterProvider router={routerConfig}/>
+          <RouterProvider router={routerConfig} />
         </div>
       </div>
     </>

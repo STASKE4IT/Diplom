@@ -40,6 +40,7 @@ export const SCLoginPage = styled.div`
   justify-content:center;
   align-items: center;
   margin-top: 25px;
+  margin-bottom: 45px;
   }
 
   #logo {

@@ -91,8 +91,8 @@ console.log("USER: ", user)
               />
             )}
           />
-          <AppButton type="submit" buttonText={"Войти"} className={""} />
         </div>
+          <AppButton type="submit" buttonText={"Войти"} className={""} />
         <div className="registration">
           <span>
             <Link to="/registration">Зарегистрироваться</Link>

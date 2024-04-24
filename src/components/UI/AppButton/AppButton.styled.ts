@@ -5,12 +5,12 @@ import styled, { keyframes } from "styled-components";
 export const SCAppButton = styled.button`
   width: 125px;
   height: 35px;
-  margin-top: 40px;
   border-radius: 5px;
+  border: 1.5px solid black;
   background-color: rgb(40, 147, 26);
-  border: none;
   transition: transform 0.3s ease;
-
+  color: white;
+  cursor: pointer;
 
   &:is(:active) {
     transform: scale(0.95);

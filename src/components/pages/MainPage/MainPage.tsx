@@ -1,5 +1,7 @@
 import { Header } from "../../UI/Header/Header";
 import { SCMainPage } from "./MainPage.styled";
+import { WorkCard } from "./WorkCard/WorkCard";
+import { data } from "./WorkCard/data";
 
 export const MainPage = () => {
   return (
@@ -7,88 +9,9 @@ export const MainPage = () => {
       <Header />
       <SCMainPage>
         <div className="MainPageFrame">
+          <p className="OfferNum">Количество актуальных предложений: {data.length}</p>
           <div className="workFrame">
-            <div className="workCard">
-              <img src="./src/images/workCard1.jpg" alt="" id="workCard" />
-              <div className="cardText">
-                <span>Описание:</span>
-                <p>Работа на фрилансе верстка по макету</p>
-                <span>Направление:</span>
-                <p>FrontEnd-Разработка</p>
-              </div>
-            </div>
-            <div className="workCard">
-              <img src="./src/images/workCard2.jpg" alt="" id="workCard" />
-              <div className="cardText">
-                <span>Описание:</span>
-                <p>Работа на фрилансе верстка по макету</p>
-                <span>Направление:</span>
-                <p>FrontEnd-Разработка</p>
-              </div>
-            </div>
-            <div className="workCard">
-              <img src="./src/images/workCard3.jpg" alt="" id="workCard" />
-              <div className="cardText">
-                <span>Описание:</span>
-                <p>Работа на фрилансе верстка по макету</p>
-                <span>Направление:</span>
-                <p>FrontEnd-Разработка</p>
-              </div>
-            </div>
-            <div className="workCard">
-              <img src="./src/images/workCard4.jpg" alt="" id="workCard" />
-              <div className="cardText">
-                <span>Описание:</span>
-                <p>Работа на фрилансе верстка по макету</p>
-                <span>Направление:</span>
-                <p>FrontEnd-Разработка</p>
-              </div>
-            </div>
-            <div className="workCard">
-              <img src="./src/images/workCard5.jpeg" alt="" id="workCard" />
-              <div className="cardText">
-                <span>Описание:</span>
-                <p>Работа на фрилансе верстка по макету</p>
-                <span>Направление:</span>
-                <p>FrontEnd-Разработка</p>
-              </div>
-            </div>
-            <div className="workCard">
-              <img src="./src/images/workCard6.jpg" alt="" id="workCard" />
-              <div className="cardText">
-                <span>Описание:</span>
-                <p>Работа на фрилансе верстка по макету</p>
-                <span>Направление:</span>
-                <p>FrontEnd-Разработка</p>
-              </div>
-            </div>
-            <div className="workCard">
-              <img src="./src/images/workCard7.jpg" alt="" id="workCard" />
-              <div className="cardText">
-                <span>Описание:</span>
-                <p>Работа на фрилансе верстка по макету</p>
-                <span>Направление:</span>
-                <p>FrontEnd-Разработка</p>
-              </div>
-            </div>
-            <div className="workCard">
-              <img src="./src/images/workCard8.jpg" alt="" id="workCard" />
-              <div className="cardText">
-                <span>Описание:</span>
-                <p>Работа на фрилансе верстка по макету</p>
-                <span>Направление:</span>
-                <p>FrontEnd-Разработка</p>
-              </div>
-            </div>
-            <div className="workCard">
-              <img src="./src/images/workCard9.jpg" alt="" id="workCard" />
-              <div className="cardText">
-                <span>Описание:</span>
-                <p>Работа на фрилансе верстка по макету</p>
-                <span>Направление:</span>
-                <p>FrontEnd-Разработка</p>
-              </div>
-            </div>
+            <WorkCard />
           </div>
         </div>
       </SCMainPage>

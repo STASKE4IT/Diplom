@@ -2,19 +2,26 @@ import styled from "styled-components";
 
 export const SCMainPage = styled.div`
   display: flex;
-  background-color:rgb(230, 230, 230);
+  background-color: rgb(230, 230, 230);
 
-  .workFrame {
-    padding: 50px;
+  padding: 30px;
 
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+  .OfferNum {
+    color: red;
+    margin-bottom: 20px;
+    text-align: right;
+  }
+
+  .workCardFrame {
+    display: flex;
+    flex-wrap: wrap;
     gap: 50px;
+    justify-content: center;
   }
 
   .workCard {
     background-color: lightgray;
+    width: 400px;
 
     border: 1px solid black;
     border-radius: 5px;
@@ -26,18 +33,17 @@ export const SCMainPage = styled.div`
     border-bottom: 1px solid black;
   }
 
-  .cardText{ 
+  .cardText {
     display: grid;
-    grid-template-columns: 1fr 1fr ;
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: 0.5fr 0.5fr;
-    grid-template-areas: 
+    grid-template-areas:
       "b d"
       "c e";
     gap: 20px;
 
     padding: 10px;
   }
-
 
   .cardText span:nth-of-type(1) {
     grid-area: b;

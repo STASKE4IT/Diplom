@@ -11,6 +11,7 @@ export interface IUser {
   name: string;
   reg_date: string;
   city: string;
+  userPhoto: string;
 }
 
 const initialState: IUserSliceState = {
@@ -22,6 +23,8 @@ export const userSlice = createSlice({
   initialState: initialState,
   reducers: {
     changeUser(state, action) {
+      console.log("Новые данные пользователя", action.payload);
+      
       state.user = action.payload;
     },
   },
