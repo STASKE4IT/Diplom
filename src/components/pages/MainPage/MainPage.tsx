@@ -11,7 +11,7 @@ export const MainPage = () => {
         <div className="MainPageFrame">
           <p className="OfferNum">Количество актуальных предложений: {data.length}</p>
           <div className="workFrame">
-            {/* <WorkCard /> */}
+            <WorkCard />
           </div>
         </div>
       </SCMainPage>
