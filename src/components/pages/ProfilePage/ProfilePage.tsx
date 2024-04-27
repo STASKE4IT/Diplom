@@ -1,10 +1,28 @@
+import { RootState } from "@reduxjs/toolkit/query";
+import { useState } from "react";
 import { useSelector } from "react-redux";
-import { RootState } from "../../../store/store";
-import { SCProfilePage } from "./ProfilePage.styled";
 import { Header } from "../../UI/Header/Header";
+import { SCProfilePage } from "./ProfilePage.styled";
+
 
 export const ProfilePage = () => {
   const user = useSelector((state: RootState) => state.userSlice.user);
+  const [formData, setFormData] = useState({
+    name: user?.name || "",
+    mail: user?.mail || "",
+    phone_number: user?.phone_number || "",
+    user_id: user?.user_id || "",
+    city: user?.city || "",
+    reg_date: user?.reg_date || "",
+  });
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
+  };
 
   return (
     <>
@@ -12,12 +30,44 @@ export const ProfilePage = () => {
       <SCProfilePage>
         <div className="profileInfo">
           <img src="./src/images/me.jpg" alt="" />
-          <h3>Имя: {user?.name}</h3>
-          <h3>E-mail: {user?.mail}</h3>
-          <h3>Номер телефона: {user?.phone_number}</h3>
-          <h3>User ID: {user?.user_id}</h3>
-          <h3>Город: {user?.city}</h3>
-          <h3>Дата регистрации: {user?.reg_date}</h3>
+          <input
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+          />
+          <input
+            type="text"
+            name="mail"
+            value={formData.mail}
+            onChange={handleChange}
+          />
+          <input
+            type="text"
+            name="phone_number"
+            value={formData.phone_number}
+            onChange={handleChange}
+          />
+          <input
+            type="text"
+            name="user_id"
+            value={formData.user_id}
+            onChange={handleChange}
+            readOnly
+          />
+          <input
+            type="text"
+            name="city"
+            value={formData.city}
+            onChange={handleChange}
+          />
+          <input
+            type="text"
+            name="reg_date"
+            value={formData.reg_date}
+            onChange={handleChange}
+            readOnly
+          />
         </div>
       </SCProfilePage>
     </>

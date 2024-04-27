@@ -6,12 +6,12 @@ import { data } from "./WorkCard/data";
 export const MainPage = () => {
   return (
     <div className="MainPage">
-      <Header />
+      <Header/>
       <SCMainPage>
         <div className="MainPageFrame">
           <p className="OfferNum">Количество актуальных предложений: {data.length}</p>
           <div className="workFrame">
-            <WorkCard />
+            {/* <WorkCard /> */}
           </div>
         </div>
       </SCMainPage>

@@ -1,8 +1,11 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { changeUser } from "../../../store/slices/UserSlice";
 import { SCRegistrationPage } from "./RegistrationPage.styled";
 import { AppButton } from "../../UI/AppButton/AppButton";
+import { SubmitHandler } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import { RootState } from "@reduxjs/toolkit/query";
 
 export const RegistrationPage = () => {
   const dispatch = useDispatch();
@@ -13,6 +16,13 @@ export const RegistrationPage = () => {
     city: "",
     reg_date: new Date().toISOString().split("T")[0], // Получаем текущую дату и преобразуем ее в строку формата "гггг-мм-дд"
   });
+
+  interface IRegisterForm {
+    useremail: string;
+    userpassword: string;
+    userphonenumber: string;
+    usercity: string;
+  }
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => { 
     const { name, value } = event.target;
@@ -26,6 +36,12 @@ export const RegistrationPage = () => {
     event.preventDefault();
     dispatch(changeUser(formData));
   };
+
+const navigate = useNavigate()
+
+  const onRegistrationFormSubmit: SubmitHandler<IRegisterForm> = (data) => {
+    data ? navigate("/main") : navigate("/");
+  }
 
   return (
     <SCRegistrationPage>

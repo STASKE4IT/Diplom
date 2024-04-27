@@ -6,9 +6,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import * as yup from "yup";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../../store/store";
-import { changeUser } from "../../../store/slices/UserSlice";
+import { useLoginUserMutation } from "../../../api/userApi";
+import { useEffect } from "react";
 
 interface ILoginForm {
   useremail: string;
@@ -27,7 +26,7 @@ const mockUser = {
   mail: "stas@gmail.com",
   phone_number: "12345678",
   user_id: 1,
-  name: "Stas",
+  name: "STASKE",
   reg_data: new Date().toISOString(),
   city: "Tashkent",
 };
@@ -42,26 +41,25 @@ export const LoginPage = () => {
     defaultValues: { useremail: "", userpassword: "" },
   });
 
-  const dispatch = useDispatch();
   const navigate = useNavigate();
-  const user = useSelector((state: RootState) => state.userSlice.user)
+  const [loginUser, { data, error, isLoading, isSuccess }] =
+    useLoginUserMutation();
+  console.log(data);
+
+  useEffect(() => {
+    if (isSuccess) {
+      navigate("/main");
+    } 
+  }, [data, navigate]);
 
   const onLoginFormSubmit: SubmitHandler<ILoginForm> = (data) => {
-    data ? navigate("/main") : navigate("/");
-    // if (data) {
-    //   navigate("/main")
-    // } else {
-    //   navigate("/")
-    // }
-    dispatch(changeUser(mockUser));
-
-console.log("USER: ", user)
-
+    loginUser({ email: data.useremail, password: data.userpassword });
   };
 
   return (
     <SCLoginPage>
-      <img src="./src/images/logo3.png" alt="" id="logo3"/>
+      {isLoading && <h1>Loading...</h1>}
+      <img src="./src/images/logo3.png" alt="" id="logo3" />
       <form onSubmit={handleSubmit(onLoginFormSubmit)} className="login">
         <img src="./src/images/logo2.png" alt="" id="logo" />
         <div className="authorisation">
@@ -92,7 +90,7 @@ console.log("USER: ", user)
             )}
           />
         </div>
-          <AppButton type="submit" buttonText={"Войти"} className={""} />
+        <AppButton type="submit" buttonText={"Войти"} className={""} />
         <div className="registration">
           <span>
             <Link to="/registration">Зарегистрироваться</Link>
