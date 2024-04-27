@@ -15,7 +15,7 @@ height: 100vh;
     
     align-items:center;
 
-    width: 300px;
+    width: 600px;
     gap: 20px;
     padding: 25px;
 

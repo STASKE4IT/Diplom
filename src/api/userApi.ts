@@ -6,15 +6,16 @@ import {
   ILoginUserResponse,
   IUserResponse,
 } from "./types";
+import { baseUrl } from "../utils/baseUrl";
 
 export const userApi = createApi({
   reducerPath: "userApi",
-  baseQuery: fetchBaseQuery({ baseUrl: "http://161.35.153.209:5430/api/" }),
+  baseQuery: fetchBaseQuery({ baseUrl }),
   endpoints: (builder) => ({
     registerUser: builder.mutation<IRegisterUserResponse, IRegisterUserPayload>(
       {
         query: (body) => ({
-          url: "registrtion",
+          url: "registration",
           method: "POST",
           body,
         }),
@@ -33,4 +34,8 @@ export const userApi = createApi({
   }),
 });
 
-export const { useRegisterUserMutation, useLoginUserMutation, useGetUserByIdQuery } = userApi;
+export const {
+  useRegisterUserMutation,
+  useLoginUserMutation,
+  useGetUserByIdQuery,
+} = userApi;

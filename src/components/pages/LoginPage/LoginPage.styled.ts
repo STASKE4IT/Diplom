@@ -59,4 +59,9 @@ export const SCLoginPage = styled.div`
     margin-top: 20px;
     font-size: 13px;
   }
+  .loader {
+    position: absolute;
+    right: 36.5%;
+    bottom: 19%;
+  }
 `;

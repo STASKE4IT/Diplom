@@ -2,6 +2,7 @@ export interface IRegisterUserPayload {
   name: string;
   email: string;
   phone_number: string;
+  password: string;
   user_city: string;
 }
 
@@ -14,7 +15,10 @@ export interface ILoginUserPayload {
   email: string;
   password: string;
 }
-export interface ILoginUserResponse extends IRegisterUserResponse {}
+export interface ILoginUserResponse extends IRegisterUserResponse {
+  name(name: any): string;
+  email(email: any): string;
+}
 
 export interface IUserResponse {
   status: number;
