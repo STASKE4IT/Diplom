@@ -3,7 +3,7 @@ import { Header } from "../../UI/Header/Header";
 import { IJobResponse } from "../../../api/types";
 import { SCFavoritePage } from "./FavoritesPage.styled";
 import classNames from "classnames";
-import { data } from "../MainPage/WorkCard/data";
+import { Link } from "react-router-dom";
 
 export const FavoritesPage = () => {
   const [favorites, setFavorites] = useState<IJobResponse[]>([]);
@@ -47,7 +47,9 @@ export const FavoritesPage = () => {
                 <span>Компания: </span>
                 {favorite.company}
               </p>
-              <button>Подробнее</button>
+              <Link to={`/vakancy/${favorite.id}`}>
+                  <button>Подробнее</button>
+                </Link>
               <img
                 src="./src/images/favorite.svg"
                 alt=""

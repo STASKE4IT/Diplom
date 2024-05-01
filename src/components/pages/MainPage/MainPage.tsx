@@ -1,52 +1,48 @@
 import { useEffect, useState } from "react";
-import { useFindJobMutation } from "../../../api/workCardApi";
 import { Header } from "../../UI/Header/Header";
 import { SCMainPage } from "./MainPage.styled";
 import { IJobResponse } from "../../../api/types";
+import { useFindJobMutation } from "../../../api/workCardApi";
+import { Link } from "react-router-dom";
 
 export const MainPage = () => {
-  const [findJob] = useFindJobMutation();
   const [jobs, setJobs] = useState<IJobResponse[]>([]);
   const [favorites, setFavorites] = useState<IJobResponse[]>([]);
 
+  const [findJob] = useFindJobMutation();
+
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await findJob({
-          page: "1",
-          items_per_page: "20",
-          page_count: "",
-        });
-
-        if ("data" in response) {
-          console.log(response.data);
-          const jobData = response.data.results.map((result: any) => ({
-            name: result.name,
-            contents: result.contents,
-            0: result[0],
-            short_name: result.short_name,
-            levels: result.levels,
-            publication_date: result.publication_date,
-            id: result.id,
-            company: result.company.name,
-            isFavorite: false,
-          }));
-          setJobs(jobData);
-        } else {
-          console.error(response.error);
-        }
-      } catch (error) {
-        console.error(error);
+    findJob({
+      page: "1",
+      items_per_page: "20",
+      page_count: "",
+    }).unwrap()
+    .then((response) => {
+      console.log(response);
+      const resultsArray = response.results;
+      if (Array.isArray(resultsArray)) {
+        const jobData = resultsArray.map((result: any) => ({
+          name: result.name,
+          contents: result.contents,
+          short_name: result.short_name,
+          levels: result.levels,
+          publication_date: result.publication_date,
+          id: result.id,
+          company: result.company.name,
+          isFavorite: false,
+        }));
+        setJobs(jobData);
+      } else {
+        console.error("Response results is not an array");
       }
-    };
-
-    fetchData();
+    })
+      .catch((error) => {
+        console.error(error);
+      });
   }, []);
 
   useEffect(() => {
-    const savedFavorites = JSON.parse(
-      localStorage.getItem("Favorites") || "[]"
-    );
+    const savedFavorites = JSON.parse(localStorage.getItem("Favorites") || "[]");
     setFavorites(savedFavorites);
   }, []);
 
@@ -83,7 +79,9 @@ export const MainPage = () => {
                   <span>Компания: </span>
                   {job.company}
                 </p>
-                <button>Подробнее</button>
+                <Link to={`/vakancy/${job.id}`}>
+                  <button>Подробнее</button>
+                </Link>{" "}
                 <img
                   src="./src/images/favorite.svg"
                   alt=""

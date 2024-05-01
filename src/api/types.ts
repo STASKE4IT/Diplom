@@ -1,4 +1,3 @@
-import { ReactNode } from "react";
 
 export interface IRegisterUserPayload {
   name: string;
@@ -36,15 +35,15 @@ export interface IUserResponse {
 
 export interface IJobResponse {
   [x: string]: any;
-  levels: [];
-  short_name: string;
-  type: string;
-  results: any;
-  name: string;
+  name: any;
   contents: string;
-  company: string
+  short_name: string;
+  levels: any;
+  publication_date: string;
+  id: any;
+  company: any;
+  isFavorite: boolean;
 }
-
 
 export interface IJobPayload {
   page: string;

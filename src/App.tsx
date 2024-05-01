@@ -29,7 +29,7 @@ const routerConfig = createBrowserRouter([
     element: <FavoritesPage />,
   },
   {
-    path: "/jobs",
+    path: "/vakancy/:id",
     element: <SelectedVakancy/>,
   },
 ]);
