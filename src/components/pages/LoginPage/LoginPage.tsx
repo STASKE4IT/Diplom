@@ -7,7 +7,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import * as yup from "yup";
 import { useLoginUserMutation } from "../../../api/userApi";
-import { useEffect } from "react";
+import { useEffect, useState } from "react"; 
 import { Loader } from "../../UI/Loader/Loader";
 
 interface ILoginForm {
@@ -36,20 +36,23 @@ export const LoginPage = () => {
   const navigate = useNavigate();
   const [loginUser, { data, error, isLoading, isSuccess }] =
     useLoginUserMutation();
+  const [loading, setLoading] = useState(false); 
 
   useEffect(() => {
-    console.log(data);
-    if (isSuccess && data && data.status == 1) {
-      localStorage.setItem("user_id", JSON.stringify(data.user_id));
-      navigate("/main")
-    } else {
-      navigate("/");
-    }
     
-  }, [data, navigate]);
+    if (isSuccess && data && data.status === 1) {
+      localStorage.setItem("user_id", JSON.stringify(data.user_id));
+      navigate("/main");
+    }else{
+      error
+    }
+  }, [data, isSuccess, navigate]);
 
   const onLoginFormSubmit: SubmitHandler<ILoginForm> = (data) => {
-    loginUser({ email: data.useremail, password: data.userpassword });
+    setLoading(true); 
+    loginUser({ email: data.useremail, password: data.userpassword })
+      .then(() => setLoading(false)) 
+      .catch(() => setLoading(false));
   };
 
   return (

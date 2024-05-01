@@ -9,13 +9,14 @@ export const SCMainPage = styled.div`
     text-align: center;
   }
   .MainPageFrame {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+
     padding: 30px 50px;
     gap: 50px;
   }
   .jobList {
+    background-color: white;
     position: relative;
 
     width: 250px;
@@ -23,15 +24,11 @@ export const SCMainPage = styled.div`
 
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    border-radius: 10px;
     border: 2px solid gray;
+    border-radius: 10px;
 
     padding: 20px 10px;
-    background-color: white;
     color: rgb(63, 63, 63);
-
-    /* gap: 50px; */
   }
   .jobList:hover {
     box-shadow: 0 0 10px black;
@@ -46,7 +43,6 @@ export const SCMainPage = styled.div`
     width: 50px;
     bottom: -30px;
     right: 0px;
-    z-index: 1;
   }
   .off {
     display: none;

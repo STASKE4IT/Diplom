@@ -10,9 +10,9 @@ export const SCFavoritePage = styled.div`
     text-align: center;
   }
   .FavWorkCardFrame {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+
     padding: 30px 50px;
     gap: 50px;
   }
@@ -21,26 +21,26 @@ export const SCFavoritePage = styled.div`
     position: relative;
 
     width: 250px;
-    height: 150px;
+    height: 120px;
 
     display: flex;
     flex-direction: column;
     border: 2px solid gray;
     border-radius: 10px;
 
-    padding: 10px;
-  }
+    padding: 20px 10px;
+    }
   .FavWorkCard p {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
   }
   .FavWorkCard span {
     color: green;
   }
   .FavWorkCard img {
     position: absolute;
-    bottom: -20px;
+    bottom: -30px;
     right: 0px;
-    width: 40px;
+    width: 50px;
   }
   .FavWorkCard:hover {
     box-shadow: 0 0 10px black;

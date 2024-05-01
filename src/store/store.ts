@@ -10,8 +10,9 @@ export const store = configureStore({
     [workCardApi.reducerPath]: workCardApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(workCardApi.middleware),
+    getDefaultMiddleware().concat(workCardApi.middleware).concat(userApi.middleware),
 });
+
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;

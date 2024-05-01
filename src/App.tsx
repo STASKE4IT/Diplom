@@ -6,6 +6,8 @@ import { ProfilePage } from "./components/pages/ProfilePage/ProfilePage";
 import { RegistrationPage } from "./components/pages/RegistrationPage/RegistrationPage";
 import { FavoritesPage } from "./components/pages/FavoritesPage/FavoritesPage";
 import { SelectedVakancy } from "./components/UI/SelectedVakancy/SelectedVakancy";
+import { ThemeProvider } from "styled-components";
+import { dark, light } from "@mui/material/styles/createPalette";
 
 const routerConfig = createBrowserRouter([
   {
@@ -39,7 +41,9 @@ function App() {
     <>
       <div className="App">
         <div>
+          <ThemeProvider theme={light}>
           <RouterProvider router={routerConfig} />
+          </ThemeProvider>
         </div>
       </div>
     </>
