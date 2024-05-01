@@ -3,6 +3,7 @@ import { Header } from "../../UI/Header/Header";
 import { IJobResponse } from "../../../api/types";
 import { SCFavoritePage } from "./FavoritesPage.styled";
 import classNames from "classnames";
+import { data } from "../MainPage/WorkCard/data";
 
 export const FavoritesPage = () => {
   const [favorites, setFavorites] = useState<IJobResponse[]>([]);
@@ -34,10 +35,10 @@ export const FavoritesPage = () => {
     <>
       <Header />
       <SCFavoritePage>
-        <h1>Избранные вакансии</h1>
+        <h1>Избранные вакансии: {favorites.length}</h1>
         <div className="FavWorkCardFrame">
           {favorites.map((favorite, index) => (
-            <div key={index} className="FavWorkCard">
+            <div className="FavWorkCard" key={index}>
               <p>
                 <span>Вакансия: </span>
                 {favorite.name}
@@ -46,6 +47,7 @@ export const FavoritesPage = () => {
                 <span>Компания: </span>
                 {favorite.company}
               </p>
+              <button>Подробнее</button>
               <img
                 src="./src/images/favorite.svg"
                 alt=""

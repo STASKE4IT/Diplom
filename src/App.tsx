@@ -5,6 +5,7 @@ import { MainPage } from "./components/pages/MainPage/MainPage";
 import { ProfilePage } from "./components/pages/ProfilePage/ProfilePage";
 import { RegistrationPage } from "./components/pages/RegistrationPage/RegistrationPage";
 import { FavoritesPage } from "./components/pages/FavoritesPage/FavoritesPage";
+import { SelectedVakancy } from "./components/UI/SelectedVakancy/SelectedVakancy";
 
 const routerConfig = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const routerConfig = createBrowserRouter([
   {
     path: "/favorites",
     element: <FavoritesPage />,
+  },
+  {
+    path: "/jobs",
+    element: <SelectedVakancy/>,
   },
 ]);
 

@@ -41,10 +41,12 @@ export const MainPage = () => {
     };
 
     fetchData();
-  }, []); 
+  }, []);
 
   useEffect(() => {
-    const savedFavorites = JSON.parse(localStorage.getItem("Favorites") || "[]");
+    const savedFavorites = JSON.parse(
+      localStorage.getItem("Favorites") || "[]"
+    );
     setFavorites(savedFavorites);
   }, []);
 
@@ -59,43 +61,50 @@ export const MainPage = () => {
   };
 
   const removeFromLocalStorage = (jobId: string) => {
-    const updatedFavorites = favorites.filter(fav => fav.id !== jobId);
+    const updatedFavorites = favorites.filter((fav) => fav.id !== jobId);
     setFavorites(updatedFavorites);
     localStorage.setItem("Favorites", JSON.stringify(updatedFavorites));
   };
-  
 
   return (
-    <div className="MainPage">
+    <>
       <Header />
       <SCMainPage>
-        <div className="MainPageFrame">
-          {jobs.map((job, index) => (
-            <div key={index} className="jobList">
-              <p>
-                <span>Вакансия: </span>
-                {job.name}
-              </p>
-              <p>
-                <span>Компания: </span>
-                {job.company}
-              </p>
+        <div className="MainPage">
+          <h1>Актуальные вакансии : {jobs.length} </h1>
+          <div className="MainPageFrame">
+            {jobs.map((job, index) => (
+              <div key={index} className="jobList">
+                <p>
+                  <span>Вакансия: </span>
+                  {job.name}
+                </p>
+                <p>
+                  <span>Компания: </span>
+                  {job.company}
+                </p>
+                <button>Подробнее</button>
                 <img
                   src="./src/images/favorite.svg"
                   alt=""
-                  className={favorites.some(fav => fav.id === job.id) ? "off" : ""}
+                  className={
+                    favorites.some((fav) => fav.id === job.id) ? "off" : ""
+                  }
                   onClick={() => addToLocalStorage(job)}
                 />
                 <img
                   src="./src/images/favorite2.svg"
                   alt=""
-                  className={!favorites.some(fav => fav.id === job.id) ? "off" : ""}
+                  className={
+                    !favorites.some((fav) => fav.id === job.id) ? "off" : ""
+                  }
                   onClick={() => removeFromLocalStorage(job.id)}
                 />
-            </div>
-          ))}
+              </div>
+            ))}
+          </div>
         </div>
       </SCMainPage>
-    </div>
+    </>
   );
 };
