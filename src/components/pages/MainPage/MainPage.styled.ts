@@ -57,4 +57,51 @@ export const SCMainPage = styled.div`
   .cardText p:nth-of-type(2) {
     grid-area: e;
   }
+
+  .MainPageFrame {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 50px;
+  }
+  .jobList {
+    position: relative;
+
+    width: 200px;
+    height: 100px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    border-radius: 10px;
+    border: 2px solid gray;
+
+    padding: 20px 10px;
+    background-color: white;
+    color: rgb(63, 63, 63);
+
+    /* gap: 50px; */
+  }
+  .jobList:hover {
+    box-shadow: 0 0 10px black;
+  }
+  .jobList .favorites {
+    position: absolute;
+    bottom: -35px;
+    right: 0;
+  }
+  .jobList img {
+    position: absolute;
+    width: 50px;
+    bottom: -30px;
+    right: 0px;
+    z-index: 1;
+  }
+  .off {
+    display: none;
+  }
+  .jobList span {
+    color: green;
+  }
 `;

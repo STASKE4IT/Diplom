@@ -39,25 +39,27 @@ export const SCLoginPage = styled.div`
   flex-direction: column;
   justify-content:center;
   align-items: center;
-  margin-top: 25px;
+  margin-top: calc(2.35vw - 8.8px);
   margin-bottom: 45px;
   }
 
   #logo {
-    margin-top:15px;
-    width: 150px;
+    margin-top:calc(-7.04vw + 116.4px);
+    width: calc(4.7vw + 82.4px);
     animation: ${exampleAnimation} 1s alternate infinite;
   }
   #logo3{
     position: absolute;
-    top: 0;
+    top: calc(3.8vw - 54.1px);
     right: 0;
-    width: 550px;
+    width: calc(14.1vw + 347.2px);
     animation: ${waveAnimation} 3s alternate, ${exampleAnimation} 5s alternate infinite;
   }
   .registration {
-    margin-top: 20px;
+    margin-top: 40px;
     font-size: 13px;
+    margin-left: calc(-49.3vw + 424.86px);
+    /* margin-left: calc(-26.76vw + 324.5px); */
   }
   .loader {
     position: absolute;

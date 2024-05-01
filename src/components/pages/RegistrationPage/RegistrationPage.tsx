@@ -2,7 +2,7 @@ import { SCRegistrationPage } from "./RegistrationPage.styled";
 import { AppButton } from "../../UI/AppButton/AppButton";
 import { useRegisterUserMutation } from "../../../api/userApi";
 import { Controller, Resolver, SubmitHandler, useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useEffect, useState } from "react";
@@ -23,6 +23,9 @@ const registrationFormSchema = yup.object({
     .string()
     .min(8, "Не менее 8 символов")
     .required("Введите пароль"),
+  name: yup.string().required("Введите имя"),
+  phone_number: yup.string().required("Введите номер телефона"),
+  user_city: yup.string().required("Введите город")
 });
 
 export const RegistrationPage = () => {
@@ -154,6 +157,9 @@ export const RegistrationPage = () => {
           />
         </div>
         <AppButton type="submit" buttonText="Зарегистрироваться" className="" />
+      <Link to="/">
+      <AppButton type={"button"} buttonText={"Передумал"} className={""}/>
+      </Link>
       </form>
     </SCRegistrationPage>
   );

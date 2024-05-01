@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export interface IRegisterUserPayload {
   name: string;
   email: string;
@@ -31,3 +33,29 @@ export interface IUserResponse {
     city: string;
   };
 }
+
+export interface IJobResponse {
+  [x: string]: any;
+  levels: [];
+  short_name: string;
+  type: string;
+  results: any;
+  name: string;
+  contents: string;
+  company: string
+}
+
+
+export interface IJobPayload {
+  page: string;
+  page_count: number;
+  items_per_page: number;
+  took: number;
+  timed_out: boolean; 
+  total: number;
+  results: []; 
+  levels: [];
+  aggregations: any;
+  [key: string]: string | number | boolean | [] | Record<string, any>;
+}
+

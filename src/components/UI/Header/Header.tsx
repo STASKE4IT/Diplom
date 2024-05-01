@@ -13,7 +13,7 @@ export const Header = () => {
       </div>
       <nav id="navigation">
         <a href="/main" className="a">MainPage</a>
-        <a href="/main" className="a">Categories</a>
+        <a href="/favorites" className="a">Favorites</a>
         <a href="/main" className="a">Page2</a>
         <a href="/main" className="a">Page3</a>
         <a href="/main" className="a">Page4</a>

@@ -1,11 +1,8 @@
-import { useSelector } from "react-redux";
 import { Header } from "../../UI/Header/Header";
 import { SCProfilePage } from "./ProfilePage.styled";
-import { RootState } from "../../../store/store";
 import { useGetUserByIdQuery } from "../../../api/userApi";
 
 export const ProfilePage = () => {
-  const user = useSelector((state: RootState) => state.userSlice.user);
 
   const user_id = localStorage.getItem('user_id');
 

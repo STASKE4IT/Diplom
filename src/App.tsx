@@ -4,6 +4,7 @@ import { LoginPage } from "./components/pages/LoginPage/LoginPage";
 import { MainPage } from "./components/pages/MainPage/MainPage";
 import { ProfilePage } from "./components/pages/ProfilePage/ProfilePage";
 import { RegistrationPage } from "./components/pages/RegistrationPage/RegistrationPage";
+import { FavoritesPage } from "./components/pages/FavoritesPage/FavoritesPage";
 
 const routerConfig = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const routerConfig = createBrowserRouter([
   {
     path: "/profile",
     element: <ProfilePage />,
+  },
+  {
+    path: "/favorites",
+    element: <FavoritesPage />,
   },
 ]);
 

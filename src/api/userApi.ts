@@ -6,7 +6,7 @@ import {
   ILoginUserResponse,
   IUserResponse,
 } from "./types";
-import { baseUrl } from "../utils/baseUrl";
+import { baseUrl } from "../utils/userUrl";
 
 export const userApi = createApi({
   reducerPath: "userApi",
@@ -39,3 +39,4 @@ export const {
   useLoginUserMutation,
   useGetUserByIdQuery,
 } = userApi;
+

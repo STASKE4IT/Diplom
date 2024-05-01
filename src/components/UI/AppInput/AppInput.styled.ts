@@ -2,7 +2,7 @@ import { css, styled } from "styled-components";
 
 export const ErrorMessage = styled.p`
   color: red;
-  width: 18.75vw;
+  width: calc(4.7vw + 197.4px);
   position: absolute;
   text-align:center;
   padding: 4px;
@@ -21,7 +21,7 @@ export const SCAppInput = styled.input<IStyledInputProps>`
   background-color: white;
   border-radius: 10px;
   border: 3px solid green;
-  width: 250px;
+  width: calc(4.7vw + 182.4px);
   margin-top:30px;
 
   ${(props) =>

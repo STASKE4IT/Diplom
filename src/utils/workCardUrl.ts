@@ -1,0 +1,1 @@
+export const workCardUrl = "https://www.themuse.com/api/"
