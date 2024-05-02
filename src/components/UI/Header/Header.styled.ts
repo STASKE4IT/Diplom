@@ -90,4 +90,9 @@ export const SCHeader = styled.div`
   .animate {
     animation: ${ColorChange} 1s alternate infinite;
   }
+  p{
+    bottom: 60px;
+    right: 320px;
+    position: absolute;
+  }
 `;

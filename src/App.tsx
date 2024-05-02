@@ -8,6 +8,7 @@ import { FavoritesPage } from "./components/pages/FavoritesPage/FavoritesPage";
 import { SelectedVakancy } from "./components/UI/SelectedVakancy/SelectedVakancy";
 import {  theme } from "./components/UI/Theme/Theme";
 import { ThemeProvider } from "styled-components";
+import { ChoisePage } from "./components/pages/qoch/ChoisePage";
 
 const routerConfig = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const routerConfig = createBrowserRouter([
   {
     path: "/vakancy/:id",
     element: <SelectedVakancy />,
+  },
+  {
+    path: "/choise",
+    element: <ChoisePage/>,
   },
 ]);
 

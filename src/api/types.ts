@@ -1,4 +1,11 @@
-
+export interface IRegistrationForm {
+  name: string;
+  email: string;
+  phone_number: string;
+  password: string;
+  user_city: string;
+  reg_date: string;
+}
 export interface IRegisterUserPayload {
   name: string;
   email: string;
@@ -28,7 +35,7 @@ export interface IUserResponse {
     phone_number: string;
     user_id: number;
     name: string;
-    reg_date: string;
+    reg_date?: any;
     city: string;
   };
 }

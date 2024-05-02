@@ -12,9 +12,9 @@ export const Header: React.FC<HeaderProps> = ({ toggleTheme }) => {
   const handleThemeButtonClick = () => {
     setIsThemeButtonClicked(true);
     setTimeout(() => {
-      toggleTheme(); 
-      setIsThemeButtonClicked(false); 
-    }, 1600); 
+      toggleTheme();
+      setIsThemeButtonClicked(false);
+    }, 1600);
   };
 
   const handleLogout = () => {
@@ -50,13 +50,12 @@ export const Header: React.FC<HeaderProps> = ({ toggleTheme }) => {
         </Link>
       </nav>
       {/* Кнопка для переключения темы */}
-      <p>Change Theme
-        <img
+      <p>Change Theme</p>
+      <img
         className={`ChangeThemeBtn ${isThemeButtonClicked ? "animate" : ""}`}
         onClick={handleThemeButtonClick}
         src="./src/images/changeTheme.png"
-        />
-        </p>
+      />
       <Link to="/">
         <button className="LogOutBtn" onClick={handleLogout}>
           LogOut
