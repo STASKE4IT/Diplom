@@ -5,6 +5,8 @@ import {
   ILoginUserPayload,
   ILoginUserResponse,
   IUserResponse,
+  IAddUserPhotoResponse,
+  IPhotoResponse,
 } from "./types";
 import { baseUrl } from "../utils/userUrl";
 
@@ -21,6 +23,7 @@ export const userApi = createApi({
         }),
       }
     ),
+    
     loginUser: builder.mutation<ILoginUserResponse, ILoginUserPayload>({
       query: (body) => ({
         url: "login",
@@ -28,8 +31,24 @@ export const userApi = createApi({
         body,
       }),
     }),
+    
     getUserById: builder.query<IUserResponse, number>({
       query: (user_id) => `user?user_id=${user_id}`,
+    }),
+    
+    getPhotoById: builder.query<IPhotoResponse, number>({
+      query: (photo_id) => `photo?photo_id=${photo_id}`,
+    }),
+    
+    addUserPhoto: builder.mutation<IAddUserPhotoResponse, FormData>({
+      query: (file) => ({
+        url: "add-photo",
+        method: "POST",
+        body: file,
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      }),
     }),
   }),
 });
@@ -38,5 +57,6 @@ export const {
   useRegisterUserMutation,
   useLoginUserMutation,
   useGetUserByIdQuery,
+  useAddUserPhotoMutation,
+  useGetPhotoByIdQuery,
 } = userApi;
-

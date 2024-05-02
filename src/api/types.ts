@@ -9,6 +9,7 @@ export interface IRegisterUserPayload {
 export interface IRegisterUserResponse {
   status: number;
   user_id: number;
+  
 }
 
 export interface ILoginUserPayload {
@@ -21,6 +22,14 @@ export interface ILoginUserResponse extends IRegisterUserResponse {
 }
 
 export interface IUserResponse {
+  photo: any;
+  name: string;
+  email: string;
+  phone_number: string;
+  user_id: string;
+  city: string;
+  reg_date: string;
+  user_photo(user_photo: any): string;
   status: number;
   message: {
     mail: string;
@@ -57,3 +66,12 @@ export interface IJobPayload {
   [key: string]: string | number | boolean | [] | Record<string, any>;
 }
 
+export interface IAddUserPhotoResponse{
+    user_photo(user_photo: any): any;
+    status: number,
+    message: string,
+    }
+
+    export interface IPhotoResponse{
+
+    }

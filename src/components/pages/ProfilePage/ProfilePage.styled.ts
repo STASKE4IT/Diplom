@@ -27,9 +27,10 @@ export const SCProfilePage = styled.div`
     border-bottom: 2px solid gray;
     padding: 5px;
   }
-  img {
-    width: 300px;
-  }
+  .UploadedPhoto {
+  width: 200px;
+  height: 200px;
+}
   h3 {
     border-bottom: 1px solid green;
   }
