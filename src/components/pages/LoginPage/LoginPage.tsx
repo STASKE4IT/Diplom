@@ -46,7 +46,7 @@ export const LoginPage = () => {
     }else{
       error
     }
-  }, [data, isSuccess, navigate]);
+  }, [data, isSuccess, error, navigate]);
 
   const onLoginFormSubmit: SubmitHandler<ILoginForm> = (data) => {
     setLoading(true); 

@@ -1,4 +1,67 @@
-<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M31.4517 11.3659C31.8429 10.7366 32.7589 10.7366 33.1501 11.3659L40.2946 22.8568C40.4323 23.0782 40.651 23.2371 40.9041 23.2996L54.0403 26.5435C54.7598 26.7212 55.0428 27.5923 54.5652 28.1589L45.8445 38.5045C45.6764 38.7039 45.5929 38.961 45.6117 39.221L46.5858 52.7168C46.6392 53.4559 45.8982 53.9942 45.2117 53.7151L32.6776 48.6182C32.4361 48.52 32.1657 48.52 31.9242 48.6182L19.39 53.7151C18.7036 53.9942 17.9626 53.4559 18.016 52.7168L18.9901 39.221C19.0089 38.961 18.9253 38.7039 18.7573 38.5045L10.0366 28.1589C9.559 27.5923 9.84204 26.7212 10.5615 26.5435L23.6977 23.2996C23.9508 23.2371 24.1695 23.0782 24.3072 22.8568L31.4517 11.3659Z" fill="#FFDF6D"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M30.6024 10.8379C31.385 9.57926 33.2168 9.57926 33.9994 10.8379L41.1438 22.3288L54.2801 25.5727C55.7189 25.928 56.285 27.6702 55.3298 28.8034L46.6091 39.149L47.5832 52.6448C47.6899 54.123 46.208 55.1997 44.8351 54.6414L32.3009 49.5445L19.7667 54.6414C18.3938 55.1997 16.9118 54.123 17.0185 52.6448L17.9927 39.149L9.272 28.8034C8.3168 27.6702 8.88287 25.928 10.3217 25.5727L23.4579 22.3288L30.6024 10.8379ZM39.4454 23.3848L32.3009 11.8939L25.1564 23.3848C24.8811 23.8276 24.4437 24.1454 23.9374 24.2704L10.8012 27.5144L19.5219 37.86C19.858 38.2587 20.0251 38.7729 19.9875 39.293L19.0134 52.7888L31.5475 47.6919C32.0306 47.4954 32.5712 47.4954 33.0543 47.6919L45.5884 52.7888L44.6143 39.293C44.5767 38.7729 44.7438 38.2587 45.0799 37.86L53.8006 27.5144L40.6643 24.2704C40.1581 24.1454 39.7207 23.8276 39.4454 23.3848Z" fill="black"/>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="300px"
+   height="275px"
+   viewBox="0 0 300 275"
+   version="1.1"
+   id="svg2990"
+   inkscape:version="0.47 r22583"
+   sodipodi:docname="Five_Pointed_Star_Solid.svg">
+  <metadata
+     id="metadata2998">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs2996">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 137.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="300 : 137.5 : 1"
+       inkscape:persp3d-origin="150 : 91.666667 : 1"
+       id="perspective3000" />
+  </defs>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="655"
+     inkscape:window-height="488"
+     id="namedview2994"
+     showgrid="false"
+     inkscape:zoom="0.85818182"
+     inkscape:cx="150"
+     inkscape:cy="137.5"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg2990" />
+  <polygon
+     fill="black"
+     stroke="black"
+     stroke-width="10"
+     color="blue"
+     points="150,25 179,111 269,111 197,165 223,251 150,200 77,251 103,165 31,111 121,111"
+     id="polygon2992"
+     style="fill:#f8d64e;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none" />
 </svg>

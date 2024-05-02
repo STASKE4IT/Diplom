@@ -40,10 +40,13 @@ export const SCFavoritePage = styled.div`
   }
   .FavWorkCard img {
     position: absolute;
-    bottom: 0px;
-    right: 0px;
+    bottom: 5px;
+    right: 5px;
     width: 50px;
     cursor: pointer;
+  }
+  .FavWorkCard img:nth-of-type(1){
+    display: none;
   }
   .FavWorkCard:hover {
     box-shadow: 0 0 50px ${(props) => props.theme.colors.hoverElemShadow};

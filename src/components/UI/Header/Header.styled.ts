@@ -13,6 +13,8 @@ const ColorChange = keyframes`
   100%   {transform:scaleX(var(--s,1)) translate(0) rotate(200deg)}
 `;
 
+
+
 export const SCHeader = styled.div`
   height: 100px;
   position: relative;
@@ -27,11 +29,15 @@ export const SCHeader = styled.div`
   .a {
     text-decoration: none;
     color: green;
-
     border-left: 2px solid lightgray;
     border-right: 2px solid lightgray;
-
     padding: 8px;
+
+    &:hover {
+      color: rgb(0, 61, 0);
+      font-weight: bold;
+      text-decoration: underline;
+    }
   }
 
   #navigation {
@@ -69,6 +75,8 @@ export const SCHeader = styled.div`
   .LogOutBtn {
     width: calc(2.35vw + 91.2px);
     height: calc(0.47vw + 28.24px);
+
+    margin-left: 80px;
     border-radius: 5px;
     border: 1.5px solid black;
     background-color: rgb(40, 147, 26);
@@ -80,19 +88,44 @@ export const SCHeader = styled.div`
       background-color: rgb(2, 170, 47);
     }
   }
-  .ChangeThemeBtn{
-    width: 50px;
-    position: absolute;
+  .ChangeThemeFrame {
+    position: relative;
     bottom: 0px;
-    right: 350px;
+    right: 150px;
+    background-color: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
+  }
+  .ChangeThemeBtn {
+    width: 50px;
+
+    position: absolute;
+    bottom: -50px;
+    right: -40px;
+
+    margin-top: 10px;
   }
   .animate {
     animation: ${ColorChange} 1s alternate infinite;
   }
-  p{
-    bottom: 60px;
-    right: 320px;
+  p {
     position: absolute;
+    bottom: -25px;
+    right: 0px;
+
+    padding: 5px;
+    color: green;
+
+    border-left: 2px solid lightGray;
+    border-right: 2px solid lightGray;
+    border-radius: 10px;
+
+    text-align: center;
+    &:is(:hover) {
+      color: black;
+      font-weight: bold;
+    }
   }
 `;

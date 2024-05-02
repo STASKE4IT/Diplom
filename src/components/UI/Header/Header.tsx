@@ -50,12 +50,14 @@ export const Header: React.FC<HeaderProps> = ({ toggleTheme }) => {
         </Link>
       </nav>
       {/* Кнопка для переключения темы */}
-      <p>Change Theme</p>
-      <img
-        className={`ChangeThemeBtn ${isThemeButtonClicked ? "animate" : ""}`}
-        onClick={handleThemeButtonClick}
-        src="./src/images/changeTheme.png"
-      />
+      <div className="ChangeThemeFrame">
+        <img
+          className={`ChangeThemeBtn ${isThemeButtonClicked ? "animate" : ""}`}
+          onClick={handleThemeButtonClick}
+          src="./src/images/changeTheme.png"
+        />
+        <p onClick={handleThemeButtonClick}>Change Theme</p>
+      </div>
       <Link to="/">
         <button className="LogOutBtn" onClick={handleLogout}>
           LogOut
