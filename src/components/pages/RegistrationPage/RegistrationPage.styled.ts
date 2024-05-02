@@ -22,11 +22,14 @@ height: 100vh;
     border-radius:5px;
 }
 .registrationForm input{
-    height: 25px;
-    width: 300px;
-    padding: 5px;
-    
-    border-radius:5px;
+    outline: 0;
+  font-family: inherit;
+  padding: 12px 10px;
+  background-color: white;
+  border-radius: 10px;
+  border: 3px solid green;
+  width: calc(4.7vw + 182.4px);
+  margin-top:30px;
 }
 .registrationForm h2{
     text-align: center;

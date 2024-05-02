@@ -7,7 +7,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import * as yup from "yup";
 import { useLoginUserMutation } from "../../../api/userApi";
-import { useEffect, useState } from "react"; 
+import { useEffect, useState } from "react";
 import { Loader } from "../../UI/Loader/Loader";
 
 interface ILoginForm {
@@ -36,28 +36,27 @@ export const LoginPage = () => {
   const navigate = useNavigate();
   const [loginUser, { data, error, isLoading, isSuccess }] =
     useLoginUserMutation();
-  const [loading, setLoading] = useState(false); 
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    
     if (isSuccess && data && data.status === 1) {
       localStorage.setItem("user_id", JSON.stringify(data.user_id));
       navigate("/main");
-    }else{
-      error
+    } else {
+      error;
     }
   }, [data, isSuccess, error, navigate]);
 
   const onLoginFormSubmit: SubmitHandler<ILoginForm> = (data) => {
-    setLoading(true); 
+    setLoading(true);
     loginUser({ email: data.useremail, password: data.userpassword })
-      .then(() => setLoading(false)) 
+      .then(() => setLoading(false))
       .catch(() => setLoading(false));
   };
 
   return (
-    <SCLoginPage>      
-      {isLoading && <Loader/>}
+    <SCLoginPage>
+      {isLoading && <Loader />}
       <img src="./src/images/logo3.png" alt="" id="logo3" />
       <form onSubmit={handleSubmit(onLoginFormSubmit)} className="login">
         <img src="./src/images/logo2.png" alt="" id="logo" />

@@ -1,69 +1,74 @@
 import { SCRegistrationPage } from "./RegistrationPage.styled";
 import { AppButton } from "../../UI/AppButton/AppButton";
 import { useRegisterUserMutation } from "../../../api/userApi";
-import { Controller, Resolver, SubmitHandler, useForm } from "react-hook-form";
+import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useEffect, useState } from "react";
 import { AppInput } from "../../UI/AppInput/AppInput";
-import { IRegistrationForm } from "../../../api/types";
 
-const registrationFormSchema = yup.object({
+interface IRegisterForm {
+  name: string;
+  email: string;
+  phone_number: string;
+  password: string;
+  user_city: string;
+}
+const registerFormSchema = yup.object({
+  name: yup.string().required("Введите имя"),
   email: yup.string().required("Введите E-Mail"),
+  phone_number: yup.string().required("Введите номер телефона"),
   password: yup
     .string()
     .min(8, "Не менее 8 символов")
     .required("Введите пароль"),
-  name: yup.string().required("Введите имя"),
-  phone_number: yup.string().required("Введите номер телефона"),
   user_city: yup.string().required("Введите город"),
 });
 
 export const RegistrationPage = () => {
-  const navigate = useNavigate();
   const [currentDate, setCurrentDate] = useState(
     new Date().toISOString().split("T")[0]
   ); // Получаем текущую дату в формате "YYYY-MM-DD"
 
-  const [registerUser, { data }] = useRegisterUserMutation();
   const {
     control,
     handleSubmit,
     formState: { errors },
-  } = useForm<IRegistrationForm>({
-    resolver: yupResolver(registrationFormSchema) as unknown as Resolver<
-      IRegistrationForm,
-      any
-    >,
+  } = useForm({
+    resolver: yupResolver(registerFormSchema),
     defaultValues: {
       name: "",
       email: "",
       phone_number: "",
       password: "",
       user_city: "",
-      reg_date: currentDate,
     },
   });
 
+  const navigate = useNavigate();
+  const [registerUser, { data }] = useRegisterUserMutation();
+
+  console.log("API RESPONSE", data);
+
+  const onRegisterFormSubmit: SubmitHandler<IRegisterForm> = (data) => {
+    registerUser(data);
+    console.log("SUBMIT DATA", data);
+  };
   useEffect(() => {
-    if (data) {
+    if (data && data.user_id) {
       navigate("/");
       localStorage.setItem("user_id", JSON.stringify(data.user_id));
       console.log("user_id", data.user_id);
     }
-    setCurrentDate(new Date().toISOString().split("T")[0]); // Обновляем текущую дату при загрузке компонента
+    setCurrentDate(new Date().toISOString().split("T")[0]);
   }, [data, navigate]);
-
-  const onRegistrationFormSubmit: SubmitHandler<IRegistrationForm> = (data) => {
-    registerUser(data);
-  };
 
   return (
     <SCRegistrationPage>
       <form
         className="registrationForm"
-        onSubmit={handleSubmit(onRegistrationFormSubmit)}
+        onSubmit={handleSubmit(onRegisterFormSubmit)}
       >
         <h2>Регистрация</h2>
         <div>
@@ -132,28 +137,9 @@ export const RegistrationPage = () => {
               />
             )}
           />
-          <Controller
-            name="reg_date"
-            control={control}
-            render={({ field }) => (
-              <AppInput
-                isError={!!errors.reg_date}
-                errorMessage={errors.reg_date?.message}
-                type="text"
-                placeholder="Registration Date"
-                {...field}
-                readOnly
-              />
-            )}
-          />
+          <input type="text" placeholder={currentDate}/>
         </div>
-        <Link to="/">
-          <AppButton
-            type="submit"
-            buttonText="Зарегистрироваться"
-            className=""
-          />
-        </Link>
+        <AppButton type="submit" buttonText="Зарегистрироваться" className="" />
         <Link to="/choise">
           <AppButton type={"button"} buttonText={"Передумал"} className={""} />
         </Link>

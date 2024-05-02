@@ -1,11 +1,3 @@
-export interface IRegistrationForm {
-  name: string;
-  email: string;
-  phone_number: string;
-  password: string;
-  user_city: string;
-  reg_date: string;
-}
 export interface IRegisterUserPayload {
   name: string;
   email: string;
