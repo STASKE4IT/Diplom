@@ -6,8 +6,8 @@ import { ProfilePage } from "./components/pages/ProfilePage/ProfilePage";
 import { RegistrationPage } from "./components/pages/RegistrationPage/RegistrationPage";
 import { FavoritesPage } from "./components/pages/FavoritesPage/FavoritesPage";
 import { SelectedVakancy } from "./components/UI/SelectedVakancy/SelectedVakancy";
+import {  theme } from "./components/UI/Theme/Theme";
 import { ThemeProvider } from "styled-components";
-import { dark, light } from "@mui/material/styles/createPalette";
 
 const routerConfig = createBrowserRouter([
   {
@@ -32,22 +32,22 @@ const routerConfig = createBrowserRouter([
   },
   {
     path: "/vakancy/:id",
-    element: <SelectedVakancy/>,
+    element: <SelectedVakancy />,
   },
 ]);
 
+
 function App() {
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <div className="App">
         <div>
-          <ThemeProvider theme={light}>
           <RouterProvider router={routerConfig} />
-          </ThemeProvider>
         </div>
       </div>
-    </>
+    </ThemeProvider>
   );
 }
 
 export default App;
+

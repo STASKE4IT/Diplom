@@ -1,13 +1,14 @@
 import styled from "styled-components";
 
 export const SCFavoritePage = styled.div`
-  height: 100vh;
-  background-color: lightgray;
+  background-color: ${(props) => props.theme.colors.bgc};
+  /* height: 100%; */
   display: flex;
   flex-direction: column;
   h1 {
     margin-top: 20px;
     text-align: center;
+    color: ${(props) => props.theme.colors.titleColor};
   }
   .FavWorkCardFrame {
     display: grid;
@@ -17,41 +18,43 @@ export const SCFavoritePage = styled.div`
     gap: 50px;
   }
   .FavWorkCard {
-    background-color: white;
+    background-color: ${(props) => props.theme.colors.elemsBgc};
     position: relative;
 
     width: 250px;
-    height: 120px;
+    height: 135px;
 
     display: flex;
     flex-direction: column;
-    border: 2px solid gray;
+    border: 2px solid ${(props) => props.theme.colors.borderColor};
     border-radius: 10px;
 
     padding: 20px 10px;
     }
   .FavWorkCard p {
     margin-bottom: 20px;
+    color:${(props) => props.theme.colors.pColor};
   }
   .FavWorkCard span {
-    color: green;
+    color: ${(props) => props.theme.colors.spanColor};
   }
   .FavWorkCard img {
     position: absolute;
     bottom: -30px;
     right: 0px;
     width: 50px;
+    cursor: pointer;
   }
   .FavWorkCard:hover {
-    box-shadow: 0 0 10px black;
+    box-shadow: 0 0 50px ${(props) => props.theme.colors.hoverElemShadow};
   }
   .FavWorkCard button {
     position: absolute;
     bottom: 10px;
     width: 100px;
     height: 30px;
-    color: white;
-    background-color: rgb(40, 147, 26);
+    color: ${(props) => props.theme.colors.btnTextColor};
+    background-color: ${(props) => props.theme.colors.btnBgc};
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -59,7 +62,7 @@ export const SCFavoritePage = styled.div`
 
     &:is(:active) {
       transform: scale(0.95);
-      background-color: rgb(2, 170, 47);
+      background-color: ${(props) => props.theme.colors.activeBtnBgc};
     }
   }
   .off {

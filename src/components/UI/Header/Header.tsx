@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import { SCHeader } from "./Header.styled";
 
-export const Header = () => {
-  
+interface HeaderProps {
+  toggleTheme: () => void;
+}
 
+export const Header: React.FC<HeaderProps> = ({ toggleTheme }) => {
   const handleLogout = () => {
     localStorage.removeItem("user_id");
   };
@@ -11,9 +13,6 @@ export const Header = () => {
   return (
     <SCHeader>
       <div className="logoPart">
-        <Link to="/profile">
-          <button className="profileBtn"></button>
-        </Link>
         <img src="./src/images/logo2.png" alt="" id="logo" />
       </div>
       <nav id="navigation">
@@ -36,6 +35,8 @@ export const Header = () => {
           Page5
         </Link>
       </nav>
+      {/* Кнопка для переключения темы */}
+      <button onClick={toggleTheme}>Сменить тему</button>
       <Link to="/">
         <button onClick={handleLogout}>Выйти</button>
       </Link>

@@ -1,12 +1,15 @@
 import styled from "styled-components";
 
+
 export const SCMainPage = styled.div`
   display: flex;
-  background-color: rgb(230, 230, 230);
+  background: ${(props) => props.theme.colors.bgc}; /* Использование цвета фона из темы */
   flex-direction: column;
+  height: 100%;
   h1 {
     margin-top:20px;
     text-align: center;
+    color: ${(props) => props.theme.colors.titleColor};
   }
   .MainPageFrame {
     display: grid;
@@ -16,22 +19,21 @@ export const SCMainPage = styled.div`
     gap: 50px;
   }
   .jobList {
-    background-color: white;
+    background-color:${(props) => props.theme.colors.elemsBgc};
     position: relative;
 
     width: 250px;
-    height: 120px;
+    height: 135px;
 
     display: flex;
     flex-direction: column;
-    border: 2px solid gray;
+    border: 2px solid ${(props) => props.theme.colors.borderColor};
     border-radius: 10px;
 
     padding: 20px 10px;
-    color: rgb(63, 63, 63);
   }
   .jobList:hover {
-    box-shadow: 0 0 10px black;
+    box-shadow: 0 0 50px ${(props) => props.theme.colors.hoverElemShadow};
   }
   .jobList .favorites {
     position: absolute;
@@ -43,23 +45,25 @@ export const SCMainPage = styled.div`
     width: 50px;
     bottom: -30px;
     right: 0px;
+    cursor:pointer;
   }
   .off {
     display: none;
   }
   .jobList p {
     margin-bottom: 20px;
+    color: ${(props) => props.theme.colors.pColor};
   }
   .jobList span {
-    color: green;
+    color: ${(props) => props.theme.colors.spanColor};
   }
   .jobList button {
     position: absolute;
     bottom: 10px;
     width: 100px;
     height: 30px;
-    color: white;
-    background-color: rgb(40, 147, 26);
+    color: ${(props) => props.theme.colors.btnTextColor};
+    background-color: ${(props) => props.theme.colors.btnBgc};
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -67,7 +71,7 @@ export const SCMainPage = styled.div`
 
     &:is(:active) {
       transform: scale(0.95);
-      background-color: rgb(2, 170, 47);
+      background-color: ${(props) => props.theme.colors.activeBtnBgc};
     }
   }
 `;

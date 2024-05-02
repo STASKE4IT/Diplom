@@ -4,9 +4,15 @@ import { IJobResponse } from "../../../api/types";
 import { SCFavoritePage } from "./FavoritesPage.styled";
 import classNames from "classnames";
 import { Link } from "react-router-dom";
+import { ThemeProvider } from "styled-components";
+import { darkTheme, lightTheme } from "../../UI/Theme/Theme";
 
 export const FavoritesPage = () => {
   const [favorites, setFavorites] = useState<IJobResponse[]>([]);
+
+  // Получение сохраненной темы из localStorage
+  const initialTheme = localStorage.getItem("theme") === "dark" ? darkTheme : lightTheme;
+  const [theme, setTheme] = useState(initialTheme);
 
   useEffect(() => {
     const savedFavorites = JSON.parse(
@@ -31,45 +37,56 @@ export const FavoritesPage = () => {
     );
   };
 
+  // Функция для обновления темы и сохранения ее значения в localStorage
+  const toggleTheme = () => {
+    const newTheme = theme === lightTheme ? darkTheme : lightTheme;
+    setTheme(newTheme);
+    localStorage.setItem("theme", newTheme === darkTheme ? "dark" : "light");
+  };
+
   return (
     <>
-      <Header />
-      <SCFavoritePage>
-        <h1>Избранные вакансии: {favorites.length}</h1>
-        <div className="FavWorkCardFrame">
-          {favorites.map((favorite, index) => (
-            <div className="FavWorkCard" key={index}>
-              <p>
-                <span>Вакансия: </span>
-                {favorite.name}
-              </p>
-              <p>
-                <span>Компания: </span>
-                {favorite.company}
-              </p>
-              <Link to={`/vakancy/${favorite.id}`}>
+      {/* Передаем функцию для переключения темы в Header */}
+      <Header toggleTheme={toggleTheme} />
+      {/* Передаем текущую тему в ThemeProvider */}
+      <ThemeProvider theme={theme}>
+        <SCFavoritePage>
+          <h1>Избранные вакансии: {favorites.length}</h1>
+          <div className="FavWorkCardFrame">
+            {favorites.map((favorite, index) => (
+              <div className="FavWorkCard" key={index}>
+                <p>
+                  <span>Вакансия: </span>
+                  {favorite.name}
+                </p>
+                <p>
+                  <span>Компания: </span>
+                  {favorite.company}
+                </p>
+                <Link to={`/vakancy/${favorite.id}`}>
                   <button>Подробнее</button>
                 </Link>
-              <img
-                src="./src/images/favorite.svg"
-                alt=""
-                className={classNames({
-                  off: !isFavorite(String(favorite.id)),
-                })}
-                onClick={() => removeFromLocalStorage(String(favorite.id))}
-              />
-              <img
-                src="./src/images/favorite2.svg"
-                alt=""
-                className={classNames({
-                  off: !isFavorite(String(favorite.id)),
-                })}
-                onClick={() => removeFromLocalStorage(String(favorite.id))}
-              />
-            </div>
-          ))}
-        </div>
-      </SCFavoritePage>
+                <img
+                  src="./src/images/favorite.svg"
+                  alt=""
+                  className={classNames({
+                    off: !isFavorite(String(favorite.id)),
+                  })}
+                  onClick={() => removeFromLocalStorage(String(favorite.id))}
+                />
+                <img
+                  src="./src/images/favorite2.svg"
+                  alt=""
+                  className={classNames({
+                    off: !isFavorite(String(favorite.id)),
+                  })}
+                  onClick={() => removeFromLocalStorage(String(favorite.id))}
+                />
+              </div>
+            ))}
+          </div>
+        </SCFavoritePage>
+      </ThemeProvider>
     </>
   );
 };
