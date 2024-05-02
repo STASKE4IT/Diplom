@@ -43,7 +43,7 @@ export const SCMainPage = styled.div`
   .jobList img {
     position: absolute;
     width: 50px;
-    bottom: -30px;
+    bottom: 0px;
     right: 0px;
     cursor:pointer;
   }

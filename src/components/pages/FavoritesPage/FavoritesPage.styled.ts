@@ -40,7 +40,7 @@ export const SCFavoritePage = styled.div`
   }
   .FavWorkCard img {
     position: absolute;
-    bottom: -30px;
+    bottom: 0px;
     right: 0px;
     width: 50px;
     cursor: pointer;

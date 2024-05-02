@@ -89,20 +89,20 @@ export const MainPage = () => {
       <ThemeProvider theme={theme}> 
         <SCMainPage>
           <div className="MainPage">
-            <h1>Актуальные вакансии : {jobs.length} </h1>
+            <h1>Current vacancies : {jobs.length} </h1>
             <div className="MainPageFrame">
               {jobs.map((job, index) => (
                 <div key={index} className="jobList">
                   <p>
-                    <span>Вакансия: </span>
+                    <span>Job Vacancy: </span>
                     {job.name}
                   </p>
                   <p>
-                    <span>Компания: </span>
+                    <span>Company: </span>
                     {job.company}
                   </p>
                   <Link to={`/vakancy/${job.id}`}>
-                    <button>Подробнее</button>
+                    <button>MORE</button>
                   </Link>{" "}
                   <img
                     src="./src/images/favorite.svg"

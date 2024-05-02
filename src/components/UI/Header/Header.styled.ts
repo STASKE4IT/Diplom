@@ -5,11 +5,19 @@ const exampleAnimation = keyframes`
   100% { opacity: 1; }
 `;
 
+const ColorChange = keyframes`
+0%     {transform:scaleX(var(--s,1)) translate(0) rotate(0)}
+  20% {transform:scaleX(var(--s,1)) translate(50%) rotate(0)}
+  50% {transform:scaleX(var(--s,1)) translate(50%) rotate(90deg)}
+  70%    {transform:scaleX(var(--s,1)) translate(50%) rotate(90deg)}
+  100%   {transform:scaleX(var(--s,1)) translate(0) rotate(200deg)}
+`;
+
 export const SCHeader = styled.div`
   height: 100px;
-
+  position: relative;
   display: flex;
-  gap: 50px;
+  gap: 20px;
   align-items: center;
 
   border-bottom: 2px solid green;
@@ -58,7 +66,7 @@ export const SCHeader = styled.div`
 
     cursor: pointer;
   }
-  button {
+  .LogOutBtn {
     width: calc(2.35vw + 91.2px);
     height: calc(0.47vw + 28.24px);
     border-radius: 5px;
@@ -71,5 +79,15 @@ export const SCHeader = styled.div`
       transform: scale(0.95);
       background-color: rgb(2, 170, 47);
     }
+  }
+  .ChangeThemeBtn{
+    width: 50px;
+    position: absolute;
+    bottom: 0px;
+    right: 350px;
+    cursor: pointer;
+  }
+  .animate {
+    animation: ${ColorChange} 1s alternate infinite;
   }
 `;

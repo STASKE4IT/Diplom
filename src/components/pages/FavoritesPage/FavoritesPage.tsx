@@ -51,20 +51,20 @@ export const FavoritesPage = () => {
       {/* Передаем текущую тему в ThemeProvider */}
       <ThemeProvider theme={theme}>
         <SCFavoritePage>
-          <h1>Избранные вакансии: {favorites.length}</h1>
+          <h1>Favorite vacancy: {favorites.length}</h1>
           <div className="FavWorkCardFrame">
             {favorites.map((favorite, index) => (
               <div className="FavWorkCard" key={index}>
                 <p>
-                  <span>Вакансия: </span>
+                  <span>Job Vacancy: </span>
                   {favorite.name}
                 </p>
                 <p>
-                  <span>Компания: </span>
+                  <span>Company: </span>
                   {favorite.company}
                 </p>
                 <Link to={`/vakancy/${favorite.id}`}>
-                  <button>Подробнее</button>
+                  <button>MORE</button>
                 </Link>
                 <img
                   src="./src/images/favorite.svg"

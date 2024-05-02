@@ -47,27 +47,27 @@ export const SelectedVakancy = () => {
           <div className="VakancyFrame">
             <h2>{selectedJob.name}</h2>
             <p>
-              <span>Компания: </span>
+              <span>Company: </span>
               {selectedJob.company.name}
             </p>
             <p>
-              <span>Локация: </span>
+              <span>Location: </span>
               {selectedJob.locations[0].name}
             </p>
             <p>
-              <span>Тип: </span>
+              <span>Type: </span>
               {selectedJob.type}
             </p>
             <p>
-              <span>Уровень: </span>
+              <span>Level: </span>
               {selectedJob.levels[0].name}
             </p>
             <p>
-              <span>Категории: </span>
+              <span>Categories: </span>
               {selectedJob.categories[0].name}
             </p>
             <p>
-              <span>Описание: </span>
+              <span>Description: </span>
               {selectedJob.contents && (
                 <div
                   dangerouslySetInnerHTML={{ __html: selectedJob.contents }}
@@ -76,13 +76,13 @@ export const SelectedVakancy = () => {
             </p>
 
             <p>
-              <span>Ссылка на вакансию: </span>
+              <span>Link: </span>
               <a href={selectedJob.refs.landing_page}>
                 {selectedJob.refs.landing_page}
               </a>
             </p>
             <p>
-              <span>Дата публикации: </span>
+              <span>Publication Date: </span>
               {formatDate(selectedJob.publication_date)}
             </p>
           </div>

@@ -83,16 +83,16 @@ export const LoginPage = () => {
                 isError={errors.userpassword ? true : false}
                 errorMessage={errors.userpassword?.message}
                 type={"password"}
-                placeholder={"Пароль"}
+                placeholder={"Password"}
                 {...field}
               />
             )}
           />
         </div>
-        <AppButton type="submit" buttonText={"Войти"} className={""} />
+        <AppButton type="submit" buttonText={"LogIn"} className={""} />
         <div className="registration">
           <span>
-            <Link to="/registration">Зарегистрироваться</Link>
+            <Link to="/registration">Registration</Link>
           </span>
         </div>
       </form>
