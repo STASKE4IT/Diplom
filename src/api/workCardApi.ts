@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { workCardUrl } from "../utils/workCardUrl";
-import { IJobResponse } from "./types";
+import { ICompaniesResponse, IJobResponse } from "./types";
 
 export interface IJobPayload {
   page_count: string;
@@ -29,6 +29,9 @@ export const workCardApi = createApi({
     getJobById: builder.query<IJobResponse, number>({
       query: (id) => `public/jobs/${id}`,
     }),
+    getCompanies: builder.query<ICompaniesResponse, string>({
+      query: () => `public/companies`,
+    }),
   }),
 });
-export const { useFindJobMutation, useGetJobByIdQuery } = workCardApi;
+export const { useFindJobMutation, useGetJobByIdQuery, useGetCompaniesQuery } = workCardApi;

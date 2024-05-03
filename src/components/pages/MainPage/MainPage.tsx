@@ -29,6 +29,7 @@ export const MainPage = () => {
         const resultsArray = response.results;
         if (Array.isArray(resultsArray)) {
           const jobData = resultsArray.map((result: any) => ({
+            categories: result.categories,
             name: result.name,
             contents: result.contents,
             short_name: result.short_name,
@@ -37,6 +38,8 @@ export const MainPage = () => {
             id: result.id,
             company: result.company.name,
             isFavorite: false,
+            location: result.locations,
+            type: result.type,
           }));
           setJobs(jobData);
         } else {

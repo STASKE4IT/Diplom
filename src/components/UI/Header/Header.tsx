@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { SCHeader } from "./Header.styled";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 interface HeaderProps {
   toggleTheme: () => void;
@@ -36,14 +36,14 @@ export const Header: React.FC<HeaderProps> = ({ toggleTheme }) => {
         <Link to="/favorites" className="a">
           Favorites
         </Link>
-        <Link to="/main" className="a">
-          Page2
+        <Link to="/categories" className="a">
+          Categories
         </Link>
-        <Link to="/main" className="a">
-          Page3
+        <Link to="/companies" className="a">
+          Companies
         </Link>
-        <Link to="/main" className="a">
-          Page4
+        <Link to="/coaches" className="a">
+          Coaches
         </Link>
         <Link to="/main" className="a">
           Page5
@@ -63,6 +63,7 @@ export const Header: React.FC<HeaderProps> = ({ toggleTheme }) => {
           LogOut
         </button>
       </Link>
+      <div className="PopUpCategories"></div>
     </SCHeader>
   );
 };

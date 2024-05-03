@@ -13,8 +13,6 @@ const ColorChange = keyframes`
   100%   {transform:scaleX(var(--s,1)) translate(0) rotate(200deg)}
 `;
 
-
-
 export const SCHeader = styled.div`
   height: 100px;
   position: relative;
@@ -28,10 +26,13 @@ export const SCHeader = styled.div`
 
   .a {
     text-decoration: none;
-    color: green;
+    color: white;
     border-left: 2px solid lightgray;
     border-right: 2px solid lightgray;
+    border-radius: 10px;
     padding: 8px;
+
+    background-color: rgba(20, 112, 0, 0.7);
 
     &:hover {
       color: rgb(0, 61, 0);
@@ -76,7 +77,7 @@ export const SCHeader = styled.div`
     width: calc(2.35vw + 91.2px);
     height: calc(0.47vw + 28.24px);
 
-    margin-left: 80px;
+    margin-left: 0px;
     border-radius: 5px;
     border: 1.5px solid black;
     background-color: rgb(40, 147, 26);
@@ -97,6 +98,7 @@ export const SCHeader = styled.div`
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    
   }
   .ChangeThemeBtn {
     width: 50px;
@@ -114,9 +116,10 @@ export const SCHeader = styled.div`
     position: absolute;
     bottom: -25px;
     right: 0px;
+    background-color: rgba(20, 112, 0, 0.7);
 
     padding: 5px;
-    color: green;
+    color: white;
 
     border-left: 2px solid lightGray;
     border-right: 2px solid lightGray;

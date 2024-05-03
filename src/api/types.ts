@@ -9,7 +9,6 @@ export interface IRegisterUserPayload {
 export interface IRegisterUserResponse {
   status: number;
   user_id: number;
-  
 }
 
 export interface ILoginUserPayload {
@@ -58,20 +57,30 @@ export interface IJobPayload {
   page_count: number;
   items_per_page: number;
   took: number;
-  timed_out: boolean; 
+  timed_out: boolean;
   total: number;
-  results: []; 
+  results: [];
   levels: [];
   aggregations: any;
   [key: string]: string | number | boolean | [] | Record<string, any>;
 }
 
-export interface IAddUserPhotoResponse{
-    user_photo(user_photo: any): any;
-    status: number,
-    message: string,
-    }
+export interface ICompany {
+  page: string;
+  name: string;
+  industry: string;
+  size: string;
+  location: string;
+}
 
-    export interface IPhotoResponse{
+export interface ICompaniesResponse {
+  results: ICompany[];
+}
 
-    }
+export interface IAddUserPhotoResponse {
+  user_photo(user_photo: any): any;
+  status: number;
+  message: string;
+}
+
+export interface IPhotoResponse {}

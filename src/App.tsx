@@ -9,6 +9,9 @@ import { SelectedVakancy } from "./components/UI/SelectedVakancy/SelectedVakancy
 import {  theme } from "./components/UI/Theme/Theme";
 import { ThemeProvider } from "styled-components";
 import { ChoisePage } from "./components/pages/qoch/ChoisePage";
+import { CategoriesPopUp } from "./components/pages/Categories/CategoriesPopUp";
+import { Companies } from "./components/pages/CompaniesPage/Companies";
+import { Coaches } from "./components/pages/CoachesPage/CoachesPage";
 
 const routerConfig = createBrowserRouter([
   {
@@ -38,6 +41,18 @@ const routerConfig = createBrowserRouter([
   {
     path: "/choise",
     element: <ChoisePage/>,
+  },
+  {
+    path: "/categories",
+    element: <CategoriesPopUp/>,
+  },
+  {
+    path: "/companies",
+    element:<Companies/>
+  },
+  {
+    path: "/coaches",
+    element:<Coaches/>
   },
 ]);
 
