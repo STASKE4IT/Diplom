@@ -79,15 +79,17 @@ export const CompaniesPage = () => {
           {/* Компонент для выбора страницы */}
           <div>
             {/* Создаем кнопки для пагинации */}
-            {pages.map((pageNumber) => (
-              <button
-                key={pageNumber}
-                onClick={() => handlePageChange(pageNumber)}
-                disabled={currentPage === pageNumber}
-              >
-                {pageNumber}
-              </button>
-            ))}
+            <div className="Pagination">
+              {pages.map((pageNumber) => (
+                <button
+                  key={pageNumber}
+                  onClick={() => handlePageChange(pageNumber)}
+                  disabled={currentPage === pageNumber}
+                >
+                  {pageNumber}
+                </button>
+              ))}
+            </div>
           </div>
         </SCCompaniesPage>
       </ThemeProvider>

@@ -2,19 +2,22 @@ import styled from "styled-components";
 
 export const SCFavoritePage = styled.div`
   background-color: ${(props) => props.theme.colors.bgc};
-  /* height: 100%; */
+  align-items: center;
   display: flex;
   flex-direction: column;
+  padding: 50px;
+
   h1 {
-    margin-top: 20px;
+    margin-top:-20px;
+    margin-bottom: 30px;
     text-align: center;
     color: ${(props) => props.theme.colors.titleColor};
+    font-size: 40px;
   }
   .FavWorkCardFrame {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
 
-    padding: 30px 50px;
     gap: 50px;
   }
   .FavWorkCard {

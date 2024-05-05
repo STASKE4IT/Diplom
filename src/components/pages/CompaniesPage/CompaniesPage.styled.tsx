@@ -4,13 +4,13 @@ export const SCCompaniesPage = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 100px;
+  padding: 50px;
   background-color: ${(props) => props.theme.colors.bgc};
 
   h2 {
     text-align: center;
     color: ${(props) => props.theme.colors.titleColor};
-    font-size: 50px;
+    font-size: 40px;
     margin-top: -50px;
   }
   .CompanyFrame {
@@ -36,8 +36,14 @@ export const SCCompaniesPage = styled.div`
     width: 150px;
     margin-top: 10px;
   }
+  .Pagination{
+    display:flex;
+    gap: 5px;
+  }
   Button {
     width: 50px;
+    border-radius: 5px;
+    border: 2px solid ${(props) => props.theme.colors.borderColor};
   }
   button:hover {
     box-shadow: 0 0 50px ${(props) => props.theme.colors.hoverElemShadow};

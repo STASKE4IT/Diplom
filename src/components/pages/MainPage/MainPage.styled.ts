@@ -3,19 +3,23 @@ import styled from "styled-components";
 
 export const SCMainPage = styled.div`
   display: flex;
+  align-items: center;
   background: ${(props) => props.theme.colors.bgc}; /* Использование цвета фона из темы */
   flex-direction: column;
   height: 100%;
+  padding: 50px;
+  gap: 50px 0px;
   h1 {
-    margin-top:20px;
+    margin-top:-20px;
+    margin-bottom: 30px;
     text-align: center;
     color: ${(props) => props.theme.colors.titleColor};
+    font-size: 40px
   }
   .MainPageFrame {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
 
-    padding: 30px 50px;
     gap: 50px;
   }
   .jobList {
@@ -73,5 +77,17 @@ export const SCMainPage = styled.div`
       transform: scale(0.95);
       background-color: ${(props) => props.theme.colors.activeBtnBgc};
     }
+  }
+  .Pagination{
+    display:flex;
+    gap: 5px;
+  }
+  .Pagination button{
+    width: 50px;
+    border-radius: 5px;
+    border: 2px solid ${(props) => props.theme.colors.borderColor};
+  }
+  .Pagination button:hover {
+    box-shadow: 0 0 50px ${(props) => props.theme.colors.hoverElemShadow};
   }
 `;

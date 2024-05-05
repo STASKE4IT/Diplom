@@ -13,13 +13,14 @@ export const MainPage = () => {
   const [theme, setTheme] = useState(() => {
     const savedTheme = localStorage.getItem("theme");
     return savedTheme === "dark" ? darkTheme : lightTheme;
-  }); // Состояние текущей темы
-
+  });
+  const [currentPage, setCurrentPage] = useState(1); // Состояние текущей страницы
+  const [totalPages, setTotalPages] = useState(1); // Состояние общего количества страниц
   const [findJob] = useFindJobMutation();
 
   useEffect(() => {
     findJob({
-      page: "1",
+      page: String(currentPage),
       items_per_page: "20",
       page_count: "",
     })
@@ -42,6 +43,7 @@ export const MainPage = () => {
             type: result.type,
           }));
           setJobs(jobData);
+          setTotalPages(response.page_count || 1); // Устанавливаем общее количество страниц
         } else {
           console.error("Response results is not an array");
         }
@@ -49,7 +51,7 @@ export const MainPage = () => {
       .catch((error) => {
         console.error(error);
       });
-  }, []);
+  }, [currentPage]); // Обновляем список вакансий при изменении текущей страницы
 
   useEffect(() => {
     const savedFavorites = JSON.parse(
@@ -84,12 +86,18 @@ export const MainPage = () => {
     });
   };
 
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page); // Обновляем текущую страницу при выборе новой страницы
+  };
+
+  // Вычисляем начальную и конечную страницы для отображения на пагинации
+  const startPage = Math.max(1, currentPage - 2);
+  const endPage = Math.min(totalPages, startPage + 4);
+
   return (
     <>
-      {/* Передаем функцию для переключения темы в Header */}
       <Header toggleTheme={toggleTheme} />
-      {/* Передаем текущую тему в ThemeProvider */}
-      <ThemeProvider theme={theme}> 
+      <ThemeProvider theme={theme}>
         <SCMainPage>
           <div className="MainPage">
             <h1>Current vacancies : {jobs.length} </h1>
@@ -127,6 +135,21 @@ export const MainPage = () => {
               ))}
             </div>
           </div>
+            <div className="Pagination">
+              {/* Создаем кнопки для пагинации */}
+              {Array.from({ length: endPage - startPage + 1 }).map((_, index) => {
+                const page = startPage + index;
+                return (
+                  <button
+                    key={page}
+                    onClick={() => handlePageChange(page)}
+                    disabled={currentPage === page}
+                  >
+                    {page}
+                  </button>
+                );
+              })}
+            </div>
         </SCMainPage>
       </ThemeProvider>
     </>
