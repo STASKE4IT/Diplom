@@ -1,29 +1,56 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+
+const bgMove = keyframes`
+   0% {
+    background-position-x: 0%;
+  }
+  100% {
+    background-position-x: 100%;
+  }
+`;
 
 export const SCCompaniesPage = styled.div`
+  position: relative;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
+  height: 100%;
   padding: 50px;
-  background-color: ${(props) => props.theme.colors.bgc};
+  gap: 50px 0px;
 
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(${(props) => props.theme.colors.bgc});
+    background-size: cover;
+    animation: ${bgMove} 50s alternate infinite;
+    z-index: -1; 
+  }
   h2 {
     text-align: center;
     color: ${(props) => props.theme.colors.titleColor};
     font-size: 40px;
-    margin-top: -50px;
+    margin-top:-20px;
+    margin-bottom: 30px;
   }
   .CompanyFrame {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 100px;
-    margin: 50px 0px;
+    gap: 50px;
   }
   .CompanyCard {
     border: 2px solid ${(props) => props.theme.colors.borderColor};
     border-radius: 10px;
     padding: 15px;
-    width: 200px;
+
+    width: 250px;
+    height: 100px;
+
     background-color: ${(props) => props.theme.colors.elemsBgc};
   }
   .CompanyCard:hover {
@@ -31,6 +58,9 @@ export const SCCompaniesPage = styled.div`
   }
   .CompanyCard p {
     color: ${(props) => props.theme.colors.pColor};
+  }
+  .CompanyCard span{
+    color: ${(props) => props.theme.colors.spanColor}
   }
   .CompanyLogo {
     width: 150px;

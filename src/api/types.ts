@@ -83,15 +83,22 @@ export interface IPhotoResponse {}
 export interface Company {
   [x: string]: any;
   refs: {
-    logo_image: string;
+    f1_image: any;
+    f2_image: string;
+    f3_image: string;
+    jobs_page: string;
     landing_page: string;
+    logo_image: string;
+    mini_f1_image: string;
   };
   mini_f1_image: any;
   id: number;
   page: string;
   name: string;
   industry: string;
-  size: string;
+  size: {
+    name: string;
+  };
   location: string;
 }
 
@@ -105,8 +112,7 @@ export interface CoachesPayload {
 }
 
 export interface Coach {
-    miniImage: string | undefined;
-    id: string;
-    name: string;
-
+  miniImage: string | undefined;
+  id: string;
+  name: string;
 }

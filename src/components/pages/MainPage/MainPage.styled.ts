@@ -1,20 +1,40 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
-
+const bgMove = keyframes`
+   0% {
+    background-position-x: 0%;
+  }
+  100% {
+    background-position-x: 100%;
+  }
+`;
 export const SCMainPage = styled.div`
+  position: relative;
   display: flex;
   align-items: center;
-  background: ${(props) => props.theme.colors.bgc}; /* Использование цвета фона из темы */
   flex-direction: column;
   height: 100%;
   padding: 50px;
   gap: 50px 0px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(${(props) => props.theme.colors.bgc});
+    background-size: cover;
+    animation: ${bgMove} 50s alternate infinite;
+    z-index: -1;
+  }
   h1 {
-    margin-top:-20px;
+    margin-top: -20px;
     margin-bottom: 30px;
     text-align: center;
     color: ${(props) => props.theme.colors.titleColor};
-    font-size: 40px
+    font-size: 40px;
   }
   .MainPageFrame {
     display: grid;
@@ -23,7 +43,7 @@ export const SCMainPage = styled.div`
     gap: 50px;
   }
   .jobList {
-    background-color:${(props) => props.theme.colors.elemsBgc};
+    background-color: ${(props) => props.theme.colors.elemsBgc};
     position: relative;
 
     width: 250px;
@@ -49,7 +69,7 @@ export const SCMainPage = styled.div`
     width: 50px;
     bottom: 5px;
     right: 5px;
-    cursor:pointer;
+    cursor: pointer;
   }
   .off {
     display: none;
@@ -78,11 +98,11 @@ export const SCMainPage = styled.div`
       background-color: ${(props) => props.theme.colors.activeBtnBgc};
     }
   }
-  .Pagination{
-    display:flex;
+  .Pagination {
+    display: flex;
     gap: 5px;
   }
-  .Pagination button{
+  .Pagination button {
     width: 50px;
     border-radius: 5px;
     border: 2px solid ${(props) => props.theme.colors.borderColor};

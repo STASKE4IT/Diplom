@@ -5,7 +5,8 @@ export const theme = {
 };
 export const lightTheme = {
   colors: {
-    bgc: "lightGray",
+    bgc: "./src/images/MainFonLight.jpg",
+    bgc2: "../src/images/MainFonLight.jpg",
     elemsBgc: "white",
     borderColor: "gray",
     btnBgc: "rgb(40, 147, 26)",
@@ -13,15 +14,16 @@ export const lightTheme = {
     activeBtnBgc: "rgb(2, 170, 47)",
     spanColor: "rgb(2, 164, 13)",
     pColor: "black",
-    titleColor: "black",
-    hoverElemShadow: "black",
+    titleColor: "rgb(190, 190, 190)",
+    hoverElemShadow: "white",
     ultimateColor: "black",
   },
 };
 
 export const darkTheme = {
   colors: {
-    bgc: "black",
+    bgc: "./src/images/MainFonDark.jpg",
+    bgc2: "../src/images/MainFonDark.jpg",
     elemsBgc: "white",
     borderColor: "lightGray",
     btnBgc: "rgb(126, 42, 0)",

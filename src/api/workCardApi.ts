@@ -32,6 +32,9 @@ export const workCardApi = createApi({
     getCompanies: builder.query<Company, { page: number }>({
       query: ({ page }) => `public/companies?page=${page}`,
     }),
+    getCompanyById: builder.query<Company, { id: number }>({
+      query: ({ id }) => `public/companies?${id}`,
+    }),
     getCoaches: builder.query<ICoachesResponse, CoachesPayload>({
       query: (args) => {
         const queryParams = new URLSearchParams();
@@ -53,4 +56,5 @@ export const {
   useGetJobByIdQuery,
   useGetCompaniesQuery,
   useGetCoachesQuery,
+  useGetCompanyByIdQuery,
 } = workCardApi;

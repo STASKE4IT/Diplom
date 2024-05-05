@@ -1,15 +1,37 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
+const bgMove = keyframes`
+   0% {
+    background-position-x: 0%;
+  }
+  100% {
+    background-position-x: 100%;
+  }
+`;
 export const SCFavoritePage = styled.div`
-  background-color: ${(props) => props.theme.colors.bgc};
-  align-items: center;
+  position: relative;
   display: flex;
+  align-items: center;
   flex-direction: column;
+  height: 100%;
   padding: 50px;
+  gap: 50px 0px;
 
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(${(props) => props.theme.colors.bgc});
+    background-size: cover;
+    animation: ${bgMove} 5s alternate infinite;
+    z-index: -1;
+  }
   h1 {
-    margin-top:-20px;
-    margin-bottom: 30px;
+    margin-top: -20px;
+    margin-bottom: -20px;
     text-align: center;
     color: ${(props) => props.theme.colors.titleColor};
     font-size: 40px;
@@ -33,13 +55,13 @@ export const SCFavoritePage = styled.div`
     border-radius: 10px;
 
     padding: 20px 10px;
-    }
-    .FavWorkCard:hover {
-      box-shadow: 0 0 50px ${(props) => props.theme.colors.hoverElemShadow};
-    }
+  }
+  .FavWorkCard:hover {
+    box-shadow: 0 0 50px ${(props) => props.theme.colors.hoverElemShadow};
+  }
   .FavWorkCard p {
     margin-bottom: 20px;
-    color:${(props) => props.theme.colors.pColor};
+    color: ${(props) => props.theme.colors.pColor};
   }
   .FavWorkCard span {
     color: ${(props) => props.theme.colors.spanColor};
@@ -51,7 +73,7 @@ export const SCFavoritePage = styled.div`
     width: 50px;
     cursor: pointer;
   }
-  .FavWorkCard img:nth-of-type(1){
+  .FavWorkCard img:nth-of-type(1) {
     display: none;
   }
   .FavWorkCard button {
