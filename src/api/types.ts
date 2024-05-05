@@ -15,10 +15,6 @@ export interface ILoginUserPayload {
   email: string;
   password: string;
 }
-export interface ILoginUserResponse extends IRegisterUserResponse {
-  name(name: any): string;
-  email(email: any): string;
-}
 
 export interface IUserResponse {
   photo: any;
@@ -28,7 +24,6 @@ export interface IUserResponse {
   user_id: string;
   city: string;
   reg_date: string;
-  user_photo(user_photo: any): string;
   status: number;
   message: {
     mail: string;
@@ -38,6 +33,11 @@ export interface IUserResponse {
     reg_date?: any;
     city: string;
   };
+}
+
+export interface ILoginUserResponse extends IRegisterUserResponse {
+  name(name: any): string;
+  email(email: any): string;
 }
 
 export interface IJobResponse {
@@ -65,7 +65,29 @@ export interface IJobPayload {
   [key: string]: string | number | boolean | [] | Record<string, any>;
 }
 
-export interface ICompany {
+// Key | null | undefined | string | number;
+
+export interface ICoachesResponse {
+  page_count: any;
+  results: any;
+  message: string;
+}
+
+export interface IAddUserPhotoResponse {
+  status: number;
+  message: string;
+}
+
+export interface IPhotoResponse {}
+
+export interface Company {
+  [x: string]: any;
+  refs: {
+    logo_image: string;
+    landing_page: string;
+  };
+  mini_f1_image: any;
+  id: number;
   page: string;
   name: string;
   industry: string;
@@ -73,14 +95,18 @@ export interface ICompany {
   location: string;
 }
 
-export interface ICompaniesResponse {
-  results: ICompany[];
+export interface CoachesPayload {
+  page: number;
+  descending?: boolean;
+  offering?: string;
+  level?: string;
+  specialization?: string;
+  [key: string]: number | boolean | string | undefined;
 }
 
-export interface IAddUserPhotoResponse {
-  user_photo(user_photo: any): any;
-  status: number;
-  message: string;
-}
+export interface Coach {
+    miniImage: string | undefined;
+    id: string;
+    name: string;
 
-export interface IPhotoResponse {}
+}

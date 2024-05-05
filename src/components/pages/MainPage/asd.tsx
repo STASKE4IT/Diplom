@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Header } from "../../UI/Header/Header";
 import { SCMainPage } from "./MainPage.styled";
 import { IJobResponse } from "../../../api/types";
@@ -13,13 +13,13 @@ export const MainPage = () => {
   const [theme, setTheme] = useState(() => {
     const savedTheme = localStorage.getItem("theme");
     return savedTheme === "dark" ? darkTheme : lightTheme;
-  }); // Состояние текущей темы
-
+  });
+  const [currentPage, setCurrentPage] = useState(1); // Состояние текущей страницы
   const [findJob] = useFindJobMutation();
 
   useEffect(() => {
     findJob({
-      page: "1",
+      page: String(currentPage),
       items_per_page: "20",
       page_count: "",
     })
@@ -49,7 +49,7 @@ export const MainPage = () => {
       .catch((error) => {
         console.error(error);
       });
-  }, []);
+  }, [currentPage]); // Обновляем список вакансий при изменении текущей страницы
 
   useEffect(() => {
     const savedFavorites = JSON.parse(
@@ -84,12 +84,14 @@ export const MainPage = () => {
     });
   };
 
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page); // Обновляем текущую страницу при выборе новой страницы
+  };
+
   return (
     <>
-      {/* Передаем функцию для переключения темы в Header */}
       <Header toggleTheme={toggleTheme} />
-      {/* Передаем текущую тему в ThemeProvider */}
-      <ThemeProvider theme={theme}> 
+      <ThemeProvider theme={theme}>
         <SCMainPage>
           <div className="MainPage">
             <h1>Current vacancies : {jobs.length} </h1>
@@ -125,6 +127,22 @@ export const MainPage = () => {
                   />
                 </div>
               ))}
+            </div>
+            {/* Пагинация */}
+            <div>
+              {Array.from({ length: 5 }).map((_, index) => {
+                const diff = index - 2;
+                const page = currentPage + diff;
+                return (
+                  <button
+                    key={index}
+                    onClick={() => handlePageChange(page)}
+                    disabled={page === currentPage}
+                  >
+                    {page}
+                  </button>
+                );
+              })}
             </div>
           </div>
         </SCMainPage>

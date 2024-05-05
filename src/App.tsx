@@ -10,8 +10,8 @@ import {  theme } from "./components/UI/Theme/Theme";
 import { ThemeProvider } from "styled-components";
 import { ChoisePage } from "./components/pages/qoch/ChoisePage";
 import { CategoriesPopUp } from "./components/pages/Categories/CategoriesPopUp";
-import { Companies } from "./components/pages/CompaniesPage/Companies";
-import { Coaches } from "./components/pages/CoachesPage/CoachesPage";
+import { CompaniesPage } from "./components/pages/CompaniesPage/CompaniesPage";
+import { CoachesPage } from "./components/pages/CoachesPage/CoachesPage";
 
 const routerConfig = createBrowserRouter([
   {
@@ -48,11 +48,11 @@ const routerConfig = createBrowserRouter([
   },
   {
     path: "/companies",
-    element:<Companies/>
+    element:<CompaniesPage/>
   },
   {
     path: "/coaches",
-    element:<Coaches/>
+    element:<CoachesPage/>
   },
 ]);
 

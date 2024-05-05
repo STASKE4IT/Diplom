@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { workCardUrl } from "../utils/workCardUrl";
-import { ICompaniesResponse, IJobResponse } from "./types";
+import { CoachesPayload, Company, ICoachesResponse,  IJobResponse } from "./types";
 
 export interface IJobPayload {
   page_count: string;
@@ -29,9 +29,28 @@ export const workCardApi = createApi({
     getJobById: builder.query<IJobResponse, number>({
       query: (id) => `public/jobs/${id}`,
     }),
-    getCompanies: builder.query<ICompaniesResponse, string>({
-      query: () => `public/companies`,
+    getCompanies: builder.query<Company, { page: number }>({
+      query: ({ page }) => `public/companies?page=${page}`,
+    }),
+    getCoaches: builder.query<ICoachesResponse, CoachesPayload>({
+      query: (args) => {
+        const queryParams = new URLSearchParams();
+        for (const key in args) {
+          if (Object.prototype.hasOwnProperty.call(args, key)) {
+            const value = args[key];
+            if (value !== undefined) {
+              queryParams.append(key, value.toString());
+            }
+          }
+        }
+        return `public/coaches?${queryParams.toString()}`;
+      },
     }),
   }),
 });
-export const { useFindJobMutation, useGetJobByIdQuery, useGetCompaniesQuery } = workCardApi;
+export const {
+  useFindJobMutation,
+  useGetJobByIdQuery,
+  useGetCompaniesQuery,
+  useGetCoachesQuery,
+} = workCardApi;
