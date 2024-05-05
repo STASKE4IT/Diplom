@@ -4,7 +4,7 @@ import { Company } from "../../../api/types";
 import { SCCompaniesPage } from "./CompaniesPage.styled";
 import { Header } from "../../UI/Header/Header";
 import { ThemeProvider } from "styled-components";
-import { darkTheme, lightTheme, theme } from "../../UI/Theme/Theme";
+import { darkTheme, lightTheme } from "../../UI/Theme/Theme";
 
 export const CompaniesPage = () => {
   const [currentPage, setCurrentPage] = useState(1); // Состояние для текущей страницы
