@@ -17,7 +17,7 @@ export const ProfilePage = () => {
   };
 
   const [theme, setTheme] = useState(lightTheme);
-  const [loading, setLoading] = useState(false);
+  const [, setLoading] = useState(false);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [uploadedPhotoUrl, setUploadedPhotoUrl] = useState<string | null>(null);
   const [] = useAddUserPhotoMutation();
@@ -105,6 +105,7 @@ export const ProfilePage = () => {
             <div className="UploadedPhoto">
               {uploadedPhotoUrl && <img src={uploadedPhotoUrl} alt="Uploaded" />}
             </div>
+            <div className="InfoCard">
             <p><strong>Name: </strong>{data?.message.name}</p>
             <p><strong>E-Mail: </strong>{data?.message.mail}</p>
             <p><strong>Phone Number: </strong>{data?.message.phone_number}</p>
@@ -115,6 +116,7 @@ export const ProfilePage = () => {
               <input type="file" onChange={handleFileChange} />
               <button type="submit">Загрузить</button>
             </form>
+            </div>
           </div>
         </SCProfilePage>
       </ThemeProvider>
