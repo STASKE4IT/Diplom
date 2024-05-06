@@ -6,6 +6,7 @@ import { useFindJobMutation } from "../../../api/workCardApi";
 import { Link } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import { darkTheme, lightTheme } from "../../UI/Theme/Theme";
+import { Loader2 } from "../../UI/Loader2/Loader2";
 
 export const MainPage = () => {
   const [jobs, setJobs] = useState<IJobResponse[]>([]);
@@ -14,19 +15,21 @@ export const MainPage = () => {
     const savedTheme = localStorage.getItem("theme");
     return savedTheme === "dark" ? darkTheme : lightTheme;
   });
-  const [currentPage, setCurrentPage] = useState(1); // Состояние текущей страницы
-  const [totalPages, setTotalPages] = useState(1); // Состояние общего количества страниц
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const [isLoading, setLoading] = useState(false);
   const [findJob] = useFindJobMutation();
 
   useEffect(() => {
-    findJob({
-      page: String(currentPage),
-      items_per_page: "20",
-      page_count: "",
-    })
-      .unwrap()
-      .then((response) => {
-        console.log(response);
+    setLoading(true);
+    const fetchData = async () => {
+      try {
+        const response = await findJob({
+          page: String(currentPage),
+          items_per_page: "20",
+          page_count: "",
+        }).unwrap();
+        console.log("Response:", response); // Выводим результаты в консоль
         const resultsArray = response.results;
         if (Array.isArray(resultsArray)) {
           const jobData = resultsArray.map((result: any) => ({
@@ -43,15 +46,18 @@ export const MainPage = () => {
             type: result.type,
           }));
           setJobs(jobData);
-          setTotalPages(response.page_count || 1); // Устанавливаем общее количество страниц
+          setTotalPages(response.page_count || 1);
         } else {
           console.error("Response results is not an array");
         }
-      })
-      .catch((error) => {
+      } catch (error) {
         console.error(error);
-      });
-  }, [currentPage]); // Обновляем список вакансий при изменении текущей страницы
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchData();
+  }, [currentPage]);
 
   useEffect(() => {
     const savedFavorites = JSON.parse(
@@ -76,9 +82,7 @@ export const MainPage = () => {
     localStorage.setItem("Favorites", JSON.stringify(updatedFavorites));
   };
 
-  // Функция для переключения темы
   const toggleTheme = () => {
-    // Текущая тема зависит от предыдущей
     setTheme((prevTheme) => {
       const newTheme = prevTheme === lightTheme ? darkTheme : lightTheme;
       localStorage.setItem("theme", newTheme === darkTheme ? "dark" : "light");
@@ -87,15 +91,15 @@ export const MainPage = () => {
   };
 
   const handlePageChange = (page: number) => {
-    setCurrentPage(page); // Обновляем текущую страницу при выборе новой страницы
+    setCurrentPage(page);
   };
 
-  // Вычисляем начальную и конечную страницы для отображения на пагинации
   const startPage = Math.max(1, currentPage - 2);
   const endPage = Math.min(totalPages, startPage + 4);
 
   return (
     <>
+      {isLoading && <Loader2 />}
       <Header toggleTheme={toggleTheme} />
       <ThemeProvider theme={theme}>
         <SCMainPage>
@@ -135,21 +139,20 @@ export const MainPage = () => {
               ))}
             </div>
           </div>
-            <div className="Pagination">
-              {/* Создаем кнопки для пагинации */}
-              {Array.from({ length: endPage - startPage + 1 }).map((_, index) => {
-                const page = startPage + index;
-                return (
-                  <button
-                    key={page}
-                    onClick={() => handlePageChange(page)}
-                    disabled={currentPage === page}
-                  >
-                    {page}
-                  </button>
-                );
-              })}
-            </div>
+          <div className="Pagination">
+            {Array.from({ length: endPage - startPage + 1 }).map((_, index) => {
+              const page = startPage + index;
+              return (
+                <button
+                  key={page}
+                  onClick={() => handlePageChange(page)}
+                  disabled={currentPage === page}
+                >
+                  {page}
+                </button>
+              );
+            })}
+          </div>
         </SCMainPage>
       </ThemeProvider>
     </>

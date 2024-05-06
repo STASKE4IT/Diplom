@@ -4,11 +4,13 @@ import { SCSelectedCompanyPage } from "./SelectedCompanyPage.styled";
 import { useState, useEffect } from "react";
 import { lightTheme, darkTheme } from "../../../UI/Theme/Theme";
 import { ThemeProvider } from "styled-components";
+import { Loader2 } from "../../../UI/Loader2/Loader2";
 
 export const SelectedCompanyPage = () => {
   const { id } = useParams<{ id?: string }>();
 
   const [theme, setTheme] = useState(lightTheme);
+  const [isLoading, setLoading] = useState(true); 
 
   useEffect(() => {
     const savedTheme =
@@ -16,23 +18,42 @@ export const SelectedCompanyPage = () => {
     setTheme(savedTheme);
   }, []);
 
-  // Проверяем, что id не равен undefined
+  useEffect(() => {
+    setLoading(true); 
+    const fetchData = async () => {
+      try {
+        // Ваша логика загрузки данных...
+        console.log("Fetching data for company with ID:", id);
+        setLoading(false); 
+      } catch (error) {
+        console.error("Error:", error);
+        setLoading(false); 
+      }
+    };
+    fetchData();
+  }, [id]); 
+
   if (!id) {
+    console.error("No company ID provided...");
     return <div>No company ID provided...</div>;
   }
 
-  // Получаем данные о компаниях из локального хранилища
   const companiesData = localStorage.getItem("Companies");
   const companies: { results: Company[] } = companiesData
     ? JSON.parse(companiesData)
     : { results: [] };
 
-  // Ищем выбранную компанию по id
   const selectedCompany = companies.results.find(
     (company) => company.id === parseInt(id, 10)
   );
 
+  if (isLoading) {
+    console.log("Loading...");
+    return <Loader2 />;
+  }
+
   if (!selectedCompany) {
+    console.error("No company found...");
     return <div>No company found...</div>;
   }
 
@@ -40,6 +61,8 @@ export const SelectedCompanyPage = () => {
     const date = new Date(dateString);
     return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
   };
+
+  console.log("Selected company:", selectedCompany);
 
   return (
     <>

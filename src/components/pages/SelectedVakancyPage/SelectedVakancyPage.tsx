@@ -4,6 +4,7 @@ import { useGetJobByIdQuery } from "../../../api/workCardApi";
 import { ThemeProvider } from "styled-components";
 import { darkTheme, lightTheme } from "../../UI/Theme/Theme";
 import { useEffect, useState } from "react";
+import { Loader2 } from "../../UI/Loader2/Loader2";
 
 export const SelectedVakancy = () => {
   const id = useParams<{ id?: any }>()?.id || "";
@@ -21,7 +22,7 @@ export const SelectedVakancy = () => {
 
   // Обработка загрузки данных
   if (isLoading) {
-    return <div>asDASFPJQEFPIJP</div>;
+    return <div>{<Loader2/>}</div>;
   }
   if (isError) {
     return <div>Error fetching job...</div>;

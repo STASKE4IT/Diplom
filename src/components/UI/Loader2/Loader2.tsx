@@ -7,7 +7,7 @@ export const Loader2 = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex(prevIndex => (prevIndex + 1) % images.length);
-    }, 300); // Измените значение для задержки по вашему усмотрению
+    }, 400); 
 
 
     return () => clearInterval(interval);
@@ -26,9 +26,7 @@ export const Loader2 = () => {
 
   return (
     <SCLoader2>
-      {/* Фоновый градиентный лоадер */}
       <span className="loader"></span>
-      {/* Контейнер для изображений */}
       <div className="GastriFrame">
         {images.slice(0, currentIndex + 1).map((image, index) => (
           <img key={index} src={image} alt="" />

@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useGetCoachesQuery } from "../../../api/workCardApi";
 import { Coach } from "../../../api/types";
+import { Loader2 } from "../../UI/Loader2/Loader2";
 
 export const CoachesPage = () => {
     const { data, error, isLoading } = useGetCoachesQuery({
@@ -23,7 +24,7 @@ export const CoachesPage = () => {
     if (isLoading) return <div>Loading...</div>;
 
     if (!data || !data.results || data.results.length === 0) {
-        return <div>No coaches found</div>;
+        return <div>{<Loader2/>}</div>;
     }
 
     return (

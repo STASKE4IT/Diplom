@@ -2,23 +2,23 @@ import { useEffect, useState } from "react";
 import { Header } from "../../UI/Header/Header";
 import { IJobResponse } from "../../../api/types";
 import { SCFavoritePage } from "./FavoritesPage.styled";
-import classNames from "classnames";
 import { Link } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import { darkTheme, lightTheme } from "../../UI/Theme/Theme";
 
 export const FavoritesPage = () => {
   const [favorites, setFavorites] = useState<IJobResponse[]>([]);
-
-  // Получение сохраненной темы из localStorage
-  const initialTheme = localStorage.getItem("theme") === "dark" ? darkTheme : lightTheme;
-  const [theme, setTheme] = useState(initialTheme);
+  const [theme, setTheme] = useState(
+    localStorage.getItem("theme") === "dark" ? darkTheme : lightTheme
+  );
 
   useEffect(() => {
+    console.log("Fetching favorites from localStorage...");
     const savedFavorites = JSON.parse(
       localStorage.getItem("Favorites") || "[]"
     );
     setFavorites(savedFavorites);
+    console.log("Favorites:", savedFavorites);
   }, []);
 
   const removeFromLocalStorage = (jobId: string) => {
@@ -28,6 +28,7 @@ export const FavoritesPage = () => {
       );
       setFavorites(updatedFavorites);
       localStorage.setItem("Favorites", JSON.stringify(updatedFavorites));
+      console.log("Removed job with ID", jobId, "from favorites.");
     }
   };
 
@@ -37,18 +38,16 @@ export const FavoritesPage = () => {
     );
   };
 
-  // Функция для обновления темы и сохранения ее значения в localStorage
   const toggleTheme = () => {
     const newTheme = theme === lightTheme ? darkTheme : lightTheme;
     setTheme(newTheme);
     localStorage.setItem("theme", newTheme === darkTheme ? "dark" : "light");
+    console.log("Toggled theme to", newTheme === darkTheme ? "dark" : "light");
   };
 
   return (
     <>
-      {/* Передаем функцию для переключения темы в Header */}
       <Header toggleTheme={toggleTheme} />
-      {/* Передаем текущую тему в ThemeProvider */}
       <ThemeProvider theme={theme}>
         <SCFavoritePage>
           <h1>Favorite vacancy: {favorites.length}</h1>
@@ -69,17 +68,13 @@ export const FavoritesPage = () => {
                 <img
                   src="./src/images/favorite.svg"
                   alt=""
-                  className={classNames({
-                    off: !isFavorite(String(favorite.id)),
-                  })}
+                  className={isFavorite(String(favorite.id)) ? "" : "off"}
                   onClick={() => removeFromLocalStorage(String(favorite.id))}
                 />
                 <img
                   src="./src/images/favorite2.svg"
                   alt=""
-                  className={classNames({
-                    off: !isFavorite(String(favorite.id)),
-                  })}
+                  className={isFavorite(String(favorite.id)) ? "" : "off"}
                   onClick={() => removeFromLocalStorage(String(favorite.id))}
                 />
               </div>
