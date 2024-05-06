@@ -2,7 +2,6 @@ import { useEffect, useState, useRef } from "react";
 import { SCCategoriesPopUp } from "./CategoriesPopUp.styled";
 import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme } from "../../UI/Theme/Theme";
-import { Link } from "react-router-dom";
 
 interface Job {
   categories: [{ name: string }];
