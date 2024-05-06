@@ -1,6 +1,11 @@
 import { Link } from "react-router-dom";
 import { SCHeader } from "./Header.styled";
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
+import { CategoriesPopUp } from "../../pages/Categories/CategoriesPopUp";
+
+interface Category {
+  name: string;
+}
 
 interface HeaderProps {
   toggleTheme: () => void;
@@ -8,6 +13,18 @@ interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = ({ toggleTheme }) => {
   const [isThemeButtonClicked, setIsThemeButtonClicked] = useState(false);
+  const [isCategoriesPopupVisible, setIsCategoriesPopupVisible] = useState(
+    false
+  );
+  const [, setCategoriesData] = useState<Category[]>([]);
+
+  useEffect(() => {
+    const localStorageData = localStorage.getItem("categories");
+    if (localStorageData) {
+      const parsedData: Category[] = JSON.parse(localStorageData);
+      setCategoriesData(parsedData);
+    }
+  }, []);
 
   const handleThemeButtonClick = () => {
     setIsThemeButtonClicked(true);
@@ -19,6 +36,10 @@ export const Header: React.FC<HeaderProps> = ({ toggleTheme }) => {
 
   const handleLogout = () => {
     localStorage.removeItem("user_id");
+  };
+
+  const toggleCategoriesPopup = () => {
+    setIsCategoriesPopupVisible(!isCategoriesPopupVisible);
   };
 
   return (
@@ -36,9 +57,9 @@ export const Header: React.FC<HeaderProps> = ({ toggleTheme }) => {
         <Link to="/favorites" className="a">
           Favorites
         </Link>
-        <Link to="/categories" className="a">
+        <a href="#" className="a" onClick={toggleCategoriesPopup}>
           Categories
-        </Link>
+        </a>
         <Link to="/companies" className="a">
           Companies
         </Link>
@@ -49,10 +70,11 @@ export const Header: React.FC<HeaderProps> = ({ toggleTheme }) => {
           Page5
         </Link>
       </nav>
-      {/* Кнопка для переключения темы */}
       <div className="ChangeThemeFrame">
         <img
-          className={`ChangeThemeBtn ${isThemeButtonClicked ? "animate" : ""}`}
+          className={`ChangeThemeBtn ${
+            isThemeButtonClicked ? "animate" : ""
+          }`}
           onClick={handleThemeButtonClick}
           src="./src/images/changeTheme.png"
         />
@@ -63,7 +85,11 @@ export const Header: React.FC<HeaderProps> = ({ toggleTheme }) => {
           LogOut
         </button>
       </Link>
-      <div className="PopUpCategories"></div>
+      <div className="PopUpCategories">
+        {isCategoriesPopupVisible && (
+          <CategoriesPopUp toggleTheme={toggleTheme} />
+        )}
+      </div>
     </SCHeader>
   );
 };

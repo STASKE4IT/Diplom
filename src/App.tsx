@@ -9,7 +9,6 @@ import { SelectedVakancy } from "./components/pages/SelectedVakancyPage/Selected
 import {  theme } from "./components/UI/Theme/Theme";
 import { ThemeProvider } from "styled-components";
 import { ChoisePage } from "./components/pages/qoch/ChoisePage";
-import { CategoriesPopUp } from "./components/pages/Categories/CategoriesPopUp";
 import { CompaniesPage } from "./components/pages/CompaniesPage/CompaniesPage";
 import { CoachesPage } from "./components/pages/CoachesPage/CoachesPage";
 import { SelectedCompanyPage } from "./components/pages/CompaniesPage/SelectedPage/SelectedCompanyPage";
@@ -42,10 +41,6 @@ const routerConfig = createBrowserRouter([
   {
     path: "/choise",
     element: <ChoisePage/>,
-  },
-  {
-    path: "/categories",
-    element: <CategoriesPopUp/>,
   },
   {
     path: "/companies",

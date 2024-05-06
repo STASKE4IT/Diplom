@@ -27,7 +27,7 @@ export const SCFavoritePage = styled.div`
     background: url(${(props) => props.theme.colors.bgc});
     background-repeat: no-repeat;
     background-size: center;
-    animation: ${bgMove} 50s alternate infinite;
+    animation: ${bgMove} 100s alternate infinite;
     z-index: -1;
   }
   h1 {

@@ -23,7 +23,7 @@ export const SCVakancy = styled.div`
     width: 100%;
     height: 100%;
     background: url(${(props) => props.theme.colors.bgc2});
-    background-size: cover;
+    background-size: center;
     animation: ${bgMove} 100s alternate infinite;
     z-index: -1; 
   }

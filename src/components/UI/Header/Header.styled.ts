@@ -98,7 +98,6 @@ export const SCHeader = styled.div`
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    
   }
   .ChangeThemeBtn {
     width: 50px;
@@ -131,4 +130,5 @@ export const SCHeader = styled.div`
       font-weight: bold;
     }
   }
+
 `;

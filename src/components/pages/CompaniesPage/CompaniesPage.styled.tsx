@@ -27,7 +27,7 @@ export const SCCompaniesPage = styled.div`
     height: 100%;
     background: url(${(props) => props.theme.colors.bgc}) no-repeat;
     background-size: center;
-    animation: ${bgMove} 70s alternate infinite;
+    animation: ${bgMove} 100s alternate infinite;
     z-index: -1; 
   }
   h2 {

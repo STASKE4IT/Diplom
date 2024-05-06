@@ -62,6 +62,8 @@ export interface IJobPayload {
   results: [];
   levels: [];
   aggregations: any;
+  name:string;
+  categories:any;
   [key: string]: string | number | boolean | [] | Record<string, any>;
 }
 
