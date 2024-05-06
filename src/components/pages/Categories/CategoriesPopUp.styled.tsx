@@ -14,15 +14,20 @@ const slideDown = keyframes`
 export const SCCategoriesPopUp = styled.div`
   .PopUpFrame {
     position: absolute;
-    top: 70px;
-    left: 560px;
+    top: 80px;
+    left: 520px;
+
     border: 2px solid ${(props) => props.theme.colors.borderColor};
     background-color: white;
     border-radius: 10px;
+
     padding: 20px;
+    
     width: 300px;
     height: 250px;
+    
     z-index: 1;
+    
     animation: ${slideDown} 0.3s ease forwards;
     opacity: 0;
     &.visible {

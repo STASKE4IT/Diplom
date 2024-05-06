@@ -12,6 +12,7 @@ import { ChoisePage } from "./components/pages/qoch/ChoisePage";
 import { CompaniesPage } from "./components/pages/CompaniesPage/CompaniesPage";
 import { CoachesPage } from "./components/pages/CoachesPage/CoachesPage";
 import { SelectedCompanyPage } from "./components/pages/CompaniesPage/SelectedPage/SelectedCompanyPage";
+import { Loader2 } from "./components/UI/Loader2/Loader2";
 
 const routerConfig = createBrowserRouter([
   {
@@ -53,6 +54,10 @@ const routerConfig = createBrowserRouter([
   {
     path: "/coaches",
     element:<CoachesPage/>
+  },
+  {
+    path: "/loader2",
+    element:<Loader2/>
   },
 ]);
 

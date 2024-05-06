@@ -13,9 +13,8 @@ interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = ({ toggleTheme }) => {
   const [isThemeButtonClicked, setIsThemeButtonClicked] = useState(false);
-  const [isCategoriesPopupVisible, setIsCategoriesPopupVisible] = useState(
-    false
-  );
+  const [isCategoriesPopupVisible, setIsCategoriesPopupVisible] =
+    useState(false);
   const [, setCategoriesData] = useState<Category[]>([]);
 
   useEffect(() => {
@@ -54,27 +53,36 @@ export const Header: React.FC<HeaderProps> = ({ toggleTheme }) => {
         <Link to="/main" className="a">
           Main
         </Link>
-        <Link to="/favorites" className="a">
-          Favorites
-        </Link>
-        <a href="#" className="a" onClick={toggleCategoriesPopup}>
-          Categories
-        </a>
         <Link to="/companies" className="a">
           Companies
+        </Link>
+        <a href="#" className="a" onClick={toggleCategoriesPopup}>
+          {isCategoriesPopupVisible ? (
+            <>
+              <img src="./src/images/down.svg" alt="" />
+              Categories
+            </>
+          ) : (
+            <>
+              <img src="./src/images/up.svg" alt="" />
+              Categories
+            </>
+          )}
+        </a>
+        <Link to="/favorites" className="a">
+          <img src="./src/images/favorite2.svg" alt="" />
+          Favorites
         </Link>
         <Link to="/coaches" className="a">
           Coaches
         </Link>
-        <Link to="/main" className="a">
-          Page5
+        <Link to="/loader2" className="a">
+          Loader
         </Link>
       </nav>
       <div className="ChangeThemeFrame">
         <img
-          className={`ChangeThemeBtn ${
-            isThemeButtonClicked ? "animate" : ""
-          }`}
+          className={`ChangeThemeBtn ${isThemeButtonClicked ? "animate" : ""}`}
           onClick={handleThemeButtonClick}
           src="./src/images/changeTheme.png"
         />

@@ -25,6 +25,7 @@ export const SCHeader = styled.div`
   opacity: 1;
 
   .a {
+    display: flex;
     text-decoration: none;
     color: white;
     border-left: 2px solid lightgray;
@@ -33,12 +34,19 @@ export const SCHeader = styled.div`
     padding: 8px;
 
     background-color: rgba(20, 112, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
 
     &:hover {
       color: rgb(0, 61, 0);
       font-weight: bold;
       text-decoration: underline;
     }
+  }
+
+  .a img {
+    width: 20px;
   }
 
   #navigation {
@@ -55,7 +63,7 @@ export const SCHeader = styled.div`
 
   #logo {
     width: 150px;
-    margin-left: 75px;
+    margin-left: 20px;
     animation: ${exampleAnimation} 1s alternate infinite;
   }
 
@@ -78,11 +86,14 @@ export const SCHeader = styled.div`
     height: calc(0.47vw + 28.24px);
 
     margin-left: 0px;
+    
     border-radius: 5px;
     border: 1.5px solid black;
     background-color: rgb(40, 147, 26);
-    transition: transform 0.2s ease;
+    
     color: white;
+    
+    transition: transform 0.2s ease;
     cursor: pointer;
     &:is(:active) {
       transform: scale(0.95);
@@ -130,5 +141,7 @@ export const SCHeader = styled.div`
       font-weight: bold;
     }
   }
-
+  .off {
+    display: none;
+  }
 `;
