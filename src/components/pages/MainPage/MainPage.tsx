@@ -6,7 +6,7 @@ import { useFindJobMutation } from "../../../api/workCardApi";
 import { Link } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import { darkTheme, lightTheme } from "../../UI/Theme/Theme";
-import { Loader2 } from "../../UI/Loader2/Loader2";
+import { Loader3 } from "../../UI/Loader3/Loader3";
 
 export const MainPage = () => {
   const [jobs, setJobs] = useState<IJobResponse[]>([]);
@@ -99,7 +99,7 @@ export const MainPage = () => {
 
   return (
     <>
-      {isLoading && <Loader2 />}
+      {isLoading && <Loader3/>}
       <Header toggleTheme={toggleTheme} />
       <ThemeProvider theme={theme}>
         <SCMainPage>

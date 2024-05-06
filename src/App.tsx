@@ -13,6 +13,7 @@ import { CompaniesPage } from "./components/pages/CompaniesPage/CompaniesPage";
 import { CoachesPage } from "./components/pages/CoachesPage/CoachesPage";
 import { SelectedCompanyPage } from "./components/pages/CompaniesPage/SelectedPage/SelectedCompanyPage";
 import { Loader2 } from "./components/UI/Loader2/Loader2";
+import { LoadersPage } from "./components/UI/Loaders/LoadersPage";
 
 const routerConfig = createBrowserRouter([
   {
@@ -58,6 +59,10 @@ const routerConfig = createBrowserRouter([
   {
     path: "/loader2",
     element:<Loader2/>
+  },
+  {
+    path: "/loaders",
+    element:<LoadersPage/>
   },
 ]);
 

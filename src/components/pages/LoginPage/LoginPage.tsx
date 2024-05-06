@@ -7,14 +7,7 @@ import { useEffect, useState } from "react";
 import { SCLoginPage } from "./LoginPage.styled";
 import { AppInput } from "../../UI/AppInput/AppInput";
 import { AppButton } from "../../UI/AppButton/AppButton";
-import { Loader } from "../../UI/Loader/Loader";
 
-interface ILoginForm {
-  user_id(user_id: any): string;
-  status: number;
-  useremail: string;
-  userpassword: string;
-}
 
 const loginFormSchema = yup.object({
   useremail: yup.string().required("Введите E-Mail"),
@@ -37,7 +30,7 @@ export const LoginPage = () => {
   const navigate = useNavigate();
   const [loginUser, { data, error, isLoading, isSuccess }] =
     useLoginUserMutation();
-  const [loading, setLoading] = useState(false);
+  const [, setLoading] = useState(false);
 
   useEffect(() => {
     if (isSuccess && data && data.status === 1) {
@@ -81,7 +74,7 @@ export const LoginPage = () => {
 
   return (
     <SCLoginPage>
-      {isLoading && <Loader />}
+      {isLoading && <div className="loader"></div>}
       <img src="./src/images/logo3.png" alt="" id="logo3" />
       <form onSubmit={handleSubmit(onLoginFormSubmit)} className="login">
         <img src="./src/images/logo2.png" alt="" id="logo" />

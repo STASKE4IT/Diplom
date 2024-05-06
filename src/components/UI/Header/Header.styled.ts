@@ -87,7 +87,7 @@ export const SCHeader = styled.div`
 
     margin-left: 0px;
     
-    border-radius: 5px;
+    border-radius: 10px;
     border: 1.5px solid black;
     background-color: rgb(40, 147, 26);
     

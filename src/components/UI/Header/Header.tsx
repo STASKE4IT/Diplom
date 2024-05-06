@@ -76,8 +76,8 @@ export const Header: React.FC<HeaderProps> = ({ toggleTheme }) => {
         <Link to="/coaches" className="a">
           Coaches
         </Link>
-        <Link to="/loader2" className="a">
-          Loader
+        <Link to="/loaders" className="a">
+          Loaders
         </Link>
       </nav>
       <div className="ChangeThemeFrame">
