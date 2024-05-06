@@ -1,6 +1,5 @@
 import styled, { keyframes } from "styled-components";
 
-
 const bgMove = keyframes`
    0% {
     background-position-x: 0%;
@@ -26,9 +25,9 @@ export const SCCompaniesPage = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-    background: url(${(props) => props.theme.colors.bgc});
-    background-size: cover;
-    animation: ${bgMove} 50s alternate infinite;
+    background: url(${(props) => props.theme.colors.bgc}) no-repeat;
+    background-size: center;
+    animation: ${bgMove} 70s alternate infinite;
     z-index: -1; 
   }
   h2 {

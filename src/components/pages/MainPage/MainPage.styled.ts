@@ -8,6 +8,7 @@ const bgMove = keyframes`
     background-position-x: 100%;
   }
 `;
+
 export const SCMainPage = styled.div`
   position: relative;
   display: flex;

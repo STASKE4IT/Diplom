@@ -22,8 +22,8 @@ export const SCSelectedCompanyPage = styled.div`
     width: 100%;
     height: 100%;
     background: url(${(props) => props.theme.colors.bgc2});
-    background-size: cover;
-    animation: ${bgMove} 100s alternate infinite;
+    background-size: center;
+    animation: ${bgMove} 50s alternate infinite;
     z-index: -1; 
   }
   h2 {
