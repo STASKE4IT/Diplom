@@ -6,7 +6,7 @@ import { SCCompaniesPage } from "./CompaniesPage.styled";
 import { Header } from "../../UI/Header/Header";
 import { ThemeProvider } from "styled-components";
 import { darkTheme, lightTheme } from "../../UI/Theme/Theme";
-import { Loader2 } from "../../UI/Loader2/Loader2";
+import { Loader3 } from "../../UI/Loader3/Loader3";
 
 export const CompaniesPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -33,7 +33,7 @@ export const CompaniesPage = () => {
 
   if (isLoading) {
     console.log("Loading...");
-    return <div><Loader2/></div>;
+    return <div><Loader3/></div>;
   }
 
   if (!data || !data.results || data.results.length === 0) {
