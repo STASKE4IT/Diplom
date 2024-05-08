@@ -87,11 +87,11 @@ export const SelectedCompanyPage = () => {
             <span>Size: </span>
             {selectedCompany.size.name}
           </p>
-          <div className="CompanyImg">
+          <nav className="CompanyImg">
             <img src={selectedCompany.refs.f1_image} alt="" />
             <img src={selectedCompany.refs.f2_image} alt="" />
             <img src={selectedCompany.refs.f3_image} alt="" />
-          </div>
+          </nav>
           <p>
             <span>Publication Date: </span>
             {formatDate(selectedCompany.publication_date)}

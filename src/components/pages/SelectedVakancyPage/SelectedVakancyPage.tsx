@@ -19,10 +19,9 @@ export const SelectedVakancy = () => {
     setTheme(savedTheme);
   }, []);
 
-
   // Обработка загрузки данных
   if (isLoading) {
-    return <div>{<Loader2/>}</div>;
+    return <div>{<Loader2 />}</div>;
   }
   if (isError) {
     return <div>Error fetching job...</div>;
@@ -62,15 +61,12 @@ export const SelectedVakancy = () => {
               <span>Categories: </span>
               {selectedJob.categories[0].name}
             </p>
-            <p>
+            <nav>
               <span>Description: </span>
               {selectedJob.contents && (
-                <div
-                  dangerouslySetInnerHTML={{ __html: selectedJob.contents }}
-                />
+                <p dangerouslySetInnerHTML={{ __html: selectedJob.contents }} />
               )}
-            </p>
-
+            </nav>
             <p>
               <span>Link: </span>
               <a href={selectedJob.refs.landing_page}>

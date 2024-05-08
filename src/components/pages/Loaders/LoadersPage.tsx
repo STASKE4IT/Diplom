@@ -1,9 +1,10 @@
-import { Loader } from "../Loader1/Loader";
-import { Loader2 } from "../Loader2/Loader2";
-import { Loader3 } from "../Loader3/Loader3";
+import { Loader } from "../../UI/Loader1/Loader";
+import { Loader2 } from "../../UI/Loader2/Loader2";
+import { Loader3 } from "../../UI/Loader3/Loader3";
 import { SCLoadersPage } from "./LoadersPage.styled";
 
 export const LoadersPage = () => {
+
   return (
     <>
       <SCLoadersPage>

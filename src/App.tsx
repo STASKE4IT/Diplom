@@ -13,7 +13,7 @@ import { CompaniesPage } from "./components/pages/CompaniesPage/CompaniesPage";
 import { CoachesPage } from "./components/pages/CoachesPage/CoachesPage";
 import { SelectedCompanyPage } from "./components/pages/CompaniesPage/SelectedPage/SelectedCompanyPage";
 import { Loader2 } from "./components/UI/Loader2/Loader2";
-import { LoadersPage } from "./components/UI/Loaders/LoadersPage";
+import { LoadersPage } from "./components/pages/Loaders/LoadersPage";
 
 const routerConfig = createBrowserRouter([
   {

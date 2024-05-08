@@ -49,7 +49,7 @@ export const CategoriesPopUp: React.FC<CategoriesPopUpProps> = () => {
             <ul style={{ maxHeight: "200px", overflowY: "auto" }}>
               {jobsData.map((job, index) => (
                 <li key={index}>
-                  <a>{job.categories[0].name}</a>
+                  <a>{job.categories[0]?.name}</a>
                 </li>
               ))}
             </ul>
