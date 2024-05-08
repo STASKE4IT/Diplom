@@ -26,7 +26,7 @@ export const SCMainPage = styled.div`
     width: 100%;
     height: 100%;
     background: url(${(props) => props.theme.colors.bgc});
-    background-size: center;
+    background-size: cover;
     animation: ${bgMove} 100s alternate infinite;
     z-index: -1;
   }

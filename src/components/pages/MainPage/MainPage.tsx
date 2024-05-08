@@ -44,6 +44,7 @@ export const MainPage = () => {
             isFavorite: false,
             location: result.locations,
             type: result.type,
+            page_count: response.page_count || 1, // Добавляем свойство page_count
           }));
           setJobs(jobData);
           setTotalPages(response.page_count || 1);
@@ -99,7 +100,7 @@ export const MainPage = () => {
 
   return (
     <>
-      {isLoading && <Loader3/>}
+      {isLoading && <Loader3 />}
       <Header toggleTheme={toggleTheme} />
       <ThemeProvider theme={theme}>
         <SCMainPage>

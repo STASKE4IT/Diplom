@@ -42,14 +42,13 @@ export interface ILoginUserResponse extends IRegisterUserResponse {
 
 export interface IJobResponse {
   [x: string]: any;
-  name: any;
+  name: string;
   contents: string;
   short_name: string;
-  levels: any;
   publication_date: string;
-  id: any;
-  company: any;
+  id: string;
   isFavorite: boolean;
+  page_count: string;
 }
 
 export interface IJobPayload {
@@ -61,17 +60,16 @@ export interface IJobPayload {
   total: number;
   results: [];
   levels: [];
-  aggregations: any;
-  name:string;
-  categories:any;
-  [key: string]: string | number | boolean | [] | Record<string, any>;
+  aggregations: {};
+  categories:[];
+  company: [];
 }
 
 // Key | null | undefined | string | number;
 
 export interface ICoachesResponse {
-  page_count: any;
-  results: any;
+  page_count: string;
+  results: string;
   message: string;
 }
 
@@ -85,7 +83,7 @@ export interface IPhotoResponse {}
 export interface Company {
   [x: string]: any;
   refs: {
-    f1_image: any;
+    f1_image: string;
     f2_image: string;
     f3_image: string;
     jobs_page: string;
@@ -93,7 +91,7 @@ export interface Company {
     logo_image: string;
     mini_f1_image: string;
   };
-  mini_f1_image: any;
+  mini_f1_image: string;
   id: number;
   page: string;
   name: string;
