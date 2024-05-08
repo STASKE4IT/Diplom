@@ -48,12 +48,11 @@ export interface IJobResponse {
   publication_date: string;
   id: string;
   isFavorite: boolean;
-  page_count: string;
+  page_count: string | any;
 }
 
 export interface IJobPayload {
-  page: string;
-  page_count: number;
+  page: string | number;
   items_per_page: number;
   took: number;
   timed_out: boolean;
@@ -68,7 +67,7 @@ export interface IJobPayload {
 // Key | null | undefined | string | number;
 
 export interface ICoachesResponse {
-  page_count: string;
+  page_count: number;
   results: string;
   message: string;
 }
