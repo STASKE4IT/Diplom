@@ -28,6 +28,9 @@ export const CoachesPage = () => {
         return <div>{<Loader2/>}</div>;
     }
 
+    if (!Array.isArray(data.results)) {
+        return <div>Данные недоступны</div>;
+    }
     return (
         <div>
             <h2>Coaches</h2>
