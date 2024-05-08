@@ -17,14 +17,6 @@ export const Header: React.FC<HeaderProps> = ({ toggleTheme }) => {
     useState(false);
   const [, setCategoriesData] = useState<Category[]>([]);
 
-  useEffect(() => {
-    const localStorageData = localStorage.getItem("categories");
-    if (localStorageData) {
-      const parsedData: Category[] = JSON.parse(localStorageData);
-      setCategoriesData(parsedData);
-    }
-  }, []);
-
   const handleThemeButtonClick = () => {
     setIsThemeButtonClicked(true);
     setTimeout(() => {
@@ -35,6 +27,8 @@ export const Header: React.FC<HeaderProps> = ({ toggleTheme }) => {
 
   const handleLogout = () => {
     localStorage.removeItem("user_id");
+    localStorage.removeItem("Jobs");
+    localStorage.removeItem("Companies");
   };
 
   const toggleCategoriesPopup = () => {
