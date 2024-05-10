@@ -59,9 +59,11 @@ export const LoginPage = () => {
             console.log(responseData);
             navigate("/main");
           } else {
+            alert("Неверный логин или пароль")
             console.log("Ошибка входа: Неверный логин или пароль");
           }
         } else {
+          alert("Произошла ошибка")
           console.log("Произошла ошибка:", response.error);
         }
       })
