@@ -24,6 +24,7 @@ export const Header: React.FC<HeaderProps> = ({ toggleTheme }) => {
     localStorage.removeItem("user_id");
     localStorage.removeItem("Jobs");
     localStorage.removeItem("Companies");
+    localStorage.removeItem("Theme");
   };
 
   const toggleCategoriesPopup = () => {
