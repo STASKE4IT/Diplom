@@ -1,5 +1,1 @@
-
-export const colors = {
-    
-  };
-  
+export const colors = {};

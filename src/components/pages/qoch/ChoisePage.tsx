@@ -20,7 +20,9 @@ export const ChoisePage = () => {
             CumBack
           </button>
         </Link>
-        {isFocused && <img src="./src/images/splash.png" alt="" className="splashImage" />}
+        {isFocused && (
+          <img src="./src/images/splash.png" alt="" className="splashImage" />
+        )}
         <h2>Agar yomon bola bo'lsang, chiq!</h2>
         <img src="./src/images/finger.png" alt="" />
         <Link to="https://www.youtube.com/watch?v=tPz19M-R69s">

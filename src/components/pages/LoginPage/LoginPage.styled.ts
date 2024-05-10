@@ -71,31 +71,31 @@ export const SCLoginPage = styled.div`
     margin-left: calc(-49.3vw + 424.86px);
   }
   .loader {
-  position: absolute;
-  width: 100px;
-  height: 100px;
-  bottom: 125px;
-  right: 510px;
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    bottom: 125px;
+    right: 510px;
 
-  border-radius: 10rem;
-  border: 3px solid white;
-  
-  background: linear-gradient(#04c80e, #00a67f, #000000);
-  box-shadow: 0px 0px 100px -50px black;
-  animation: ${animation} 1s linear infinite;
-}
+    border-radius: 10rem;
+    border: 3px solid white;
 
-.loader::before {
-  position: absolute;
-  content: "";
-  background: #fff;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 80%;
-  height: 80%;
-  border-radius: 10rem;
-  border: 3px solid white;
-  box-shadow: inset 0px 0px 100px -70px #111;
-}
+    background: linear-gradient(#04c80e, #00a67f, #000000);
+    box-shadow: 0px 0px 100px -50px black;
+    animation: ${animation} 1s linear infinite;
+  }
+
+  .loader::before {
+    position: absolute;
+    content: "";
+    background: #fff;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;
+    border-radius: 10rem;
+    border: 3px solid white;
+    box-shadow: inset 0px 0px 100px -70px #111;
+  }
 `;

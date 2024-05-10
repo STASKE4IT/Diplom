@@ -22,12 +22,12 @@ export const SCCategoriesPopUp = styled.div`
     border-radius: 10px;
 
     padding: 20px;
-    
+
     width: 300px;
     height: 250px;
-    
+
     z-index: 1;
-    
+
     animation: ${slideDown} 0.3s ease forwards;
     opacity: 0;
     &.visible {

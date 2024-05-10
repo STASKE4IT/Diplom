@@ -24,7 +24,7 @@ export const SCSelectedCompanyPage = styled.div`
     background: url(${(props) => props.theme.colors.bgc2});
     background-size: center;
     animation: ${bgMove} 100s alternate infinite;
-    z-index: -1; 
+    z-index: -1;
   }
   h2 {
     text-align: center;

@@ -25,7 +25,7 @@ export const SCProfilePage = styled.div`
     background: url(${(props) => props.theme.colors.bgc2});
     background-size: center;
     animation: ${bgMove} 100s alternate infinite;
-    z-index: -1; 
+    z-index: -1;
   }
 
   .profileInfo {
@@ -41,19 +41,19 @@ export const SCProfilePage = styled.div`
     width: 700px;
     box-shadow: 0 0 50px ${(props) => props.theme.colors.hoverElemShadow};
   }
-  .InfoCard{
+  .InfoCard {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    }
+  }
   p {
     border-bottom: 2px solid gray;
     padding: 5px;
   }
   .UploadedPhoto {
-  width: 200px;
-  height: 200px;
-}
+    width: 200px;
+    height: 200px;
+  }
   h3 {
     border-bottom: 1px solid green;
   }

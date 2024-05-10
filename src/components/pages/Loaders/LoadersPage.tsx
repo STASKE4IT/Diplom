@@ -4,7 +4,6 @@ import { Loader3 } from "../../UI/Loader3/Loader3";
 import { SCLoadersPage } from "./LoadersPage.styled";
 
 export const LoadersPage = () => {
-
   return (
     <>
       <SCLoadersPage>

@@ -1,11 +1,7 @@
 import { Link } from "react-router-dom";
 import { SCHeader } from "./Header.styled";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { CategoriesPopUp } from "../../pages/Categories/CategoriesPopUp";
-
-interface Category {
-  name: string;
-}
 
 interface HeaderProps {
   toggleTheme: () => void;
@@ -15,7 +11,6 @@ export const Header: React.FC<HeaderProps> = ({ toggleTheme }) => {
   const [isThemeButtonClicked, setIsThemeButtonClicked] = useState(false);
   const [isCategoriesPopupVisible, setIsCategoriesPopupVisible] =
     useState(false);
-  const [, setCategoriesData] = useState<Category[]>([]);
 
   const handleThemeButtonClick = () => {
     setIsThemeButtonClicked(true);

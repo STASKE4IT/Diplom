@@ -8,7 +8,6 @@ import { SCLoginPage } from "./LoginPage.styled";
 import { AppInput } from "../../UI/AppInput/AppInput";
 import { AppButton } from "../../UI/AppButton/AppButton";
 
-
 const loginFormSchema = yup.object({
   useremail: yup.string().required("Введите E-Mail"),
   userpassword: yup
@@ -56,8 +55,8 @@ export const LoginPage = () => {
             localStorage.setItem(
               "user_id",
               JSON.stringify(responseData.user_id)
-              );
-              console.log(responseData)
+            );
+            console.log(responseData);
             navigate("/main");
           } else {
             console.log("Ошибка входа: Неверный логин или пароль");

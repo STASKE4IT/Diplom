@@ -1,7 +1,5 @@
 import styled, { keyframes } from "styled-components";
 
-
-
 export const SCAppButton = styled.button`
   width: calc(2.35vw + 91.2px);
   height: calc(0.47vw + 28.24px);

@@ -12,9 +12,9 @@ const bgMove = keyframes`
 export const SCVakancy = styled.div`
   position: relative;
   height: 100%;
-  
+
   padding: 100px;
-  
+
   &::before {
     content: "";
     position: absolute;
@@ -25,7 +25,7 @@ export const SCVakancy = styled.div`
     background: url(${(props) => props.theme.colors.bgc2});
     background-size: center;
     animation: ${bgMove} 100s alternate infinite;
-    z-index: -1; 
+    z-index: -1;
   }
   .VakancyFrame {
     border: 2px solid ${(props) => props.theme.colors.borderColor};

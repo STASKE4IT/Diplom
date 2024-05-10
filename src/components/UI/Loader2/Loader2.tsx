@@ -6,9 +6,8 @@ export const Loader2 = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex(prevIndex => (prevIndex + 1) % images.length);
-    }, 400); 
-
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 400);
 
     return () => clearInterval(interval);
   }, []);
@@ -21,7 +20,7 @@ export const Loader2 = () => {
     "./src/images/car.png",
     "./src/images/human3.png",
     "./src/images/human2.png",
-    "./src/images/carmove.png"
+    "./src/images/carmove.png",
   ];
 
   return (

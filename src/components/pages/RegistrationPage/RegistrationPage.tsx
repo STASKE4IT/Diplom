@@ -137,7 +137,7 @@ export const RegistrationPage = () => {
               />
             )}
           />
-          <input type="text" placeholder={currentDate}/>
+          <input type="text" placeholder={currentDate} />
         </div>
         <AppButton type="submit" buttonText="Зарегистрироваться" className="" />
         <Link to="/choise">

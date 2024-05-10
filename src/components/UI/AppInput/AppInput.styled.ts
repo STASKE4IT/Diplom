@@ -4,7 +4,7 @@ export const ErrorMessage = styled.p`
   color: red;
   width: calc(4.7vw + 197.4px);
   position: absolute;
-  text-align:center;
+  text-align: center;
   padding: 4px;
   background: white;
   border-radius: 5px;
@@ -22,7 +22,7 @@ export const SCAppInput = styled.input<IStyledInputProps>`
   border-radius: 10px;
   border: 3px solid green;
   width: calc(4.7vw + 182.4px);
-  margin-top:30px;
+  margin-top: 30px;
 
   ${(props) =>
     props.$isError &&
@@ -35,5 +35,4 @@ export const SCAppInput = styled.input<IStyledInputProps>`
   &:is(:hover, :focus) {
     border-color: black;
   }
-
 `;

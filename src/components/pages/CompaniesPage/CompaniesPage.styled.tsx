@@ -28,13 +28,13 @@ export const SCCompaniesPage = styled.div`
     background: url(${(props) => props.theme.colors.bgc}) no-repeat;
     background-size: center;
     animation: ${bgMove} 100s alternate infinite;
-    z-index: -1; 
+    z-index: -1;
   }
   h2 {
     text-align: center;
     color: ${(props) => props.theme.colors.titleColor};
     font-size: 40px;
-    margin-top:-20px;
+    margin-top: -20px;
     margin-bottom: 30px;
   }
   .CompanyFrame {
@@ -58,15 +58,15 @@ export const SCCompaniesPage = styled.div`
   .CompanyCard p {
     color: ${(props) => props.theme.colors.pColor};
   }
-  .CompanyCard span{
-    color: ${(props) => props.theme.colors.spanColor}
+  .CompanyCard span {
+    color: ${(props) => props.theme.colors.spanColor};
   }
   .CompanyLogo {
     width: 150px;
     margin-top: 10px;
   }
-  .Pagination{
-    display:flex;
+  .Pagination {
+    display: flex;
     gap: 5px;
   }
   Button {

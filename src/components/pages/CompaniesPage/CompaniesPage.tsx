@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom"; 
+import { Link } from "react-router-dom";
 import { useGetCompaniesQuery } from "../../../api/workCardApi";
 import { Company } from "../../../api/types";
 import { SCCompaniesPage } from "./CompaniesPage.styled";
@@ -33,7 +33,11 @@ export const CompaniesPage = () => {
 
   if (isLoading) {
     console.log("Loading...");
-    return <div><Loader3/></div>;
+    return (
+      <div>
+        <Loader3 />
+      </div>
+    );
   }
 
   if (!data || !data.results || data.results.length === 0) {
@@ -51,7 +55,10 @@ export const CompaniesPage = () => {
   const middlePage = Math.ceil(totalPages / 2);
   const startPage = Math.max(1, currentPage - middlePage + 1);
   const endPage = Math.min(data.page_count, startPage + totalPages - 1);
-  const pages = Array.from({ length: endPage - startPage + 1 }, (_, i) => startPage + i);
+  const pages = Array.from(
+    { length: endPage - startPage + 1 },
+    (_, i) => startPage + i
+  );
 
   return (
     <>

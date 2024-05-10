@@ -49,5 +49,4 @@ export const SCChoise = styled.div`
     left: 320px;
     top: 260px;
   }
-  
 `;

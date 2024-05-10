@@ -17,7 +17,7 @@ export const SCLoader2 = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: src="./src/images/MainFonDark.jpg";
+  background: src= "./src/images/MainFonDark.jpg";
   .GastriFrame {
     position: relative;
     top: 175px;

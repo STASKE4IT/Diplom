@@ -86,13 +86,13 @@ export const SCHeader = styled.div`
     height: calc(0.47vw + 28.24px);
 
     margin-left: 0px;
-    
+
     border-radius: 10px;
     border: 1.5px solid black;
     background-color: rgb(40, 147, 26);
-    
+
     color: white;
-    
+
     transition: transform 0.2s ease;
     cursor: pointer;
     &:is(:active) {

@@ -27,7 +27,8 @@ export const ProfilePage = () => {
       localStorage.getItem("theme") === "dark" ? darkTheme : lightTheme;
     setTheme(savedTheme);
 
-    const uploadedPhotoUrlFromStorage = localStorage.getItem("uploadedPhotoUrl");
+    const uploadedPhotoUrlFromStorage =
+      localStorage.getItem("uploadedPhotoUrl");
     if (uploadedPhotoUrlFromStorage) {
       setUploadedPhotoUrl(uploadedPhotoUrlFromStorage);
     }
@@ -61,30 +62,32 @@ export const ProfilePage = () => {
     formData.append("post_id", "130");
 
     try {
-      const response = await fetch('http://161.35.153.209:5430/api/add-photo', {
-        method: 'POST',
+      const response = await fetch("http://161.35.153.209:5430/api/add-photo", {
+        method: "POST",
         body: formData,
       });
       const responseData = await response.json();
-      console.log('Response data:', responseData); // Выводим данные ответа в консоль
+      console.log("Response data:", responseData); // Выводим данные ответа в консоль
       if (responseData && responseData.status === 1) {
         // Предположим, что имя файла - это message в ответе от сервера
         const fileName = responseData.message; // Предполагаем, что имя файла возвращается сервером
-       if (fileName) {
-  const uploadedPhotoUrl = `http://161.35.153.209:5430/api/photo/${fileName}`;
-  console.log("Uploaded photo URL:", uploadedPhotoUrl); 
-  setUploadedPhotoUrl(uploadedPhotoUrl);
-  
-  localStorage.setItem("uploadedPhotoUrl", uploadedPhotoUrl);
-}
- else {
-          console.error('Failed to get file name from server response:', responseData);
+        if (fileName) {
+          const uploadedPhotoUrl = `http://161.35.153.209:5430/api/photo/${fileName}`;
+          console.log("Uploaded photo URL:", uploadedPhotoUrl);
+          setUploadedPhotoUrl(uploadedPhotoUrl);
+
+          localStorage.setItem("uploadedPhotoUrl", uploadedPhotoUrl);
+        } else {
+          console.error(
+            "Failed to get file name from server response:",
+            responseData
+          );
         }
       } else {
-        console.error('Failed to add photo:', responseData);
+        console.error("Failed to add photo:", responseData);
       }
     } catch (error) {
-      console.error('Failed to add photo:', error);
+      console.error("Failed to add photo:", error);
     }
 
     setLoading(false);
@@ -103,23 +106,43 @@ export const ProfilePage = () => {
         <SCProfilePage>
           <div className="profileInfo">
             <div className="UploadedPhoto">
-              {uploadedPhotoUrl && <img src={uploadedPhotoUrl} alt="Uploaded" />}
+              {uploadedPhotoUrl && (
+                <img src={uploadedPhotoUrl} alt="Uploaded" />
+              )}
             </div>
             <div className="InfoCard">
-            <p><strong>Name: </strong>{data?.message.name}</p>
-            <p><strong>E-Mail: </strong>{data?.message.mail}</p>
-            <p><strong>Phone Number: </strong>{data?.message.phone_number}</p>
-            <p><strong>User Id: </strong>{data?.message.user_id}</p>
-            <p><strong>City: </strong>{data?.message.city}</p>
-            <p><strong>Registration Date: </strong>{formatDate(data?.message.reg_date)}</p>
-            <form onSubmit={addPhotoFormSubmit}>
-              <input type="file" onChange={handleFileChange} />
-              <button type="submit">Загрузить</button>
-            </form>
+              <p>
+                <strong>Name: </strong>
+                {data?.message.name}
+              </p>
+              <p>
+                <strong>E-Mail: </strong>
+                {data?.message.mail}
+              </p>
+              <p>
+                <strong>Phone Number: </strong>
+                {data?.message.phone_number}
+              </p>
+              <p>
+                <strong>User Id: </strong>
+                {data?.message.user_id}
+              </p>
+              <p>
+                <strong>City: </strong>
+                {data?.message.city}
+              </p>
+              <p>
+                <strong>Registration Date: </strong>
+                {formatDate(data?.message.reg_date)}
+              </p>
+              <form onSubmit={addPhotoFormSubmit}>
+                <input type="file" onChange={handleFileChange} />
+                <button type="submit">Загрузить</button>
+              </form>
             </div>
           </div>
         </SCProfilePage>
       </ThemeProvider>
     </>
-  );  
+  );
 };
